@@ -1235,7 +1235,7 @@ AIRPORTS = [
     {"name": 'Medan Polonia International Airport (closed 2013)', "city": 'Medan', "country": 'Indonesia', "iata": 'MES', "icao": 'WIMK', "lat": 3.5587, "lon": 98.6713, "alt": 114, "tz": 'Asia/Jakarta', "wiki": 'https://en.wikipedia.org/wiki/Medan_Polonia_International_Airport'},
     {"name": 'Palawan Puerto Princesa Airport', "city": 'Puerto Princesa', "country": 'Philippines', "iata": 'PPS', "icao": 'RPVP', "lat": 9.7421, "lon": 118.759, "alt": 71, "tz": 'Asia/Manila', "wiki": 'https://en.wikipedia.org/wiki/Palawan_Puerto_Princesa_Airport'},
     {"name": 'Groningen Airport Eelde', "city": 'Groningen', "country": 'Netherlands', "iata": 'GRQ', "icao": 'EHGG', "lat": 53.1197, "lon": 6.5797, "alt": 17, "tz": 'Europe/Amsterdam', "wiki": 'https://en.wikipedia.org/wiki/Groningen_Airport_Eelde'},
-    {"name": 'Kyiv Zhuliany International Airport', "city": 'Kyiv', "country": 'Ukraine', "iata": 'IEV', "icao": 'UKKK', "lat": 50.4016, "lon": 30.4497, "alt": 587, "tz": 'Europe/Kyiv', "wiki": 'https://en.wikipedia.org/wiki/Kyiv_Zhuliany_International_Airport'},
+    {"name": 'Kyiv Igor Sikorsky / Zhuliany Airport (closed 2022)', "city": 'Kyiv', "country": 'Ukraine', "iata": 'IEV', "icao": 'UKKK', "lat": 50.4016, "lon": 30.4497, "alt": 587, "tz": 'Europe/Kyiv', "wiki": 'https://en.wikipedia.org/wiki/Kyiv_Zhuliany_International_Airport'},
     {"name": 'Gulfport Biloxi International Airport', "city": 'Gulfport', "country": 'United States', "iata": 'GPT', "icao": 'KGPT', "lat": 30.4073, "lon": -89.0701, "alt": 28, "tz": 'America/Chicago', "wiki": 'https://en.wikipedia.org/wiki/Gulfport_Biloxi_International_Airport'},
     {"name": 'Ponce Mercedita Airport', "city": 'Ponce', "country": 'Puerto Rico', "iata": 'PSE', "icao": 'TJPS', "lat": 18.0083, "lon": -66.563, "alt": 29, "tz": 'America/Puerto_Rico', "wiki": 'https://en.wikipedia.org/wiki/Ponce_Mercedita_Airport'},
     {"name": 'Cartagena Rafael Nunez International', "city": 'Cartagena', "country": 'Colombia', "iata": 'CTG', "icao": 'SKCG', "lat": 10.4424, "lon": -75.513, "alt": 4, "tz": 'America/Bogota', "wiki": 'https://en.wikipedia.org/wiki/Cartagena_Rafael_Nunez_International'},
@@ -1892,7 +1892,7 @@ AIRPORTS = [
     {"name": 'Koggala Airport', "city": 'Koggala', "country": 'Sri Lanka', "iata": 'KCT', "icao": 'VCCK', "lat": 5.9936, "lon": 80.3203, "alt": 10, "tz": 'Asia/Colombo', "wiki": 'https://en.wikipedia.org/wiki/Koggala_Airport'},
     {"name": 'Lviv Danylo Halytskyi International Airport', "city": 'Lviv', "country": 'Ukraine', "iata": 'LWO', "icao": 'UKLL', "lat": 49.8125, "lon": 23.9561, "alt": 1071, "tz": 'Europe/Kyiv', "wiki": 'https://en.wikipedia.org/wiki/Lviv_Danylo_Halytskyi_International_Airport'},
     {"name": 'Odesa International Airport', "city": 'Odesa', "country": 'Ukraine', "iata": 'ODS', "icao": 'UKOO', "lat": 46.4268, "lon": 30.6765, "alt": 172, "tz": 'Europe/Kyiv', "wiki": 'https://en.wikipedia.org/wiki/Odesa_International_Airport'},
-    {"name": 'Kharkiv International Airport', "city": 'Kharkiv', "country": 'Ukraine', "iata": 'HRK', "icao": 'UKHH', "lat": 49.9248, "lon": 36.29, "alt": 508, "tz": 'Europe/Kyiv', "wiki": 'https://en.wikipedia.org/wiki/Kharkiv_International_Airport'},
+    {"name": 'Kharkiv International Airport (closed 2022)', "city": 'Kharkiv', "country": 'Ukraine', "iata": 'HRK', "icao": 'UKHH', "lat": 49.9248, "lon": 36.29, "alt": 508, "tz": 'Europe/Kyiv', "wiki": 'https://en.wikipedia.org/wiki/Kharkiv_International_Airport'},
     {"name": 'Dnipro International Airport', "city": 'Dnipro', "country": 'Ukraine', "iata": 'DNK', "icao": 'UKDD', "lat": 48.3572, "lon": 35.1006, "alt": 481, "tz": 'Europe/Kyiv', "wiki": 'https://en.wikipedia.org/wiki/Dnipro_International_Airport'},
     {"name": 'Zaporizhzhia International Airport', "city": 'Zaporizhzhia', "country": 'Ukraine', "iata": 'OZH', "icao": 'UKDE', "lat": 47.8678, "lon": 35.3156, "alt": 373, "tz": 'Europe/Kyiv', "wiki": 'https://en.wikipedia.org/wiki/Zaporizhzhia_International_Airport'},
     {"name": 'Vinnytsia Airport', "city": 'Vinnytsia', "country": 'Ukraine', "iata": 'VIN', "icao": 'UKWW', "lat": 49.2433, "lon": 28.6083, "alt": 971, "tz": 'Europe/Kyiv', "wiki": 'https://en.wikipedia.org/wiki/Vinnytsia_Airport'},
@@ -2458,7 +2458,7 @@ AIRPORTS = [
     {"name": 'Bisha Airport', "city": 'Bisha', "country": 'Saudi Arabia', "iata": 'BHH', "icao": 'OEBH', "lat": 19.9844, "lon": 42.6209, "alt": 3887, "tz": 'Asia/Riyadh', "wiki": 'https://en.wikipedia.org/wiki/Bisha_Airport'},
     {"name": 'Qassim Airport', "city": 'Buraidah', "country": 'Saudi Arabia', "iata": 'ELQ', "icao": 'OEGS', "lat": 26.3025, "lon": 43.7744, "alt": 2126, "tz": 'Asia/Riyadh', "wiki": 'https://en.wikipedia.org/wiki/Qassim_Airport'},
     {"name": 'Taif Regional Airport', "city": 'Taif', "country": 'Saudi Arabia', "iata": 'TIF', "icao": 'OETF', "lat": 21.4834, "lon": 40.5443, "alt": 4848, "tz": 'Asia/Riyadh', "wiki": 'https://en.wikipedia.org/wiki/Taif_Regional_Airport'},
-    {"name": 'Aleppo International Airport', "city": 'Aleppo', "country": 'Syria', "iata": 'ALP', "icao": 'OSAP', "lat": 36.1807, "lon": 37.2244, "alt": 1276, "tz": 'Asia/Damascus', "wiki": 'https://en.wikipedia.org/wiki/Aleppo_International_Airport'},
+    {"name": 'Aleppo International Airport (closed 2013, Syrian civil war)', "city": 'Aleppo', "country": 'Syria', "iata": 'ALP', "icao": 'OSAP', "lat": 36.1807, "lon": 37.2244, "alt": 1276, "tz": 'Asia/Damascus', "wiki": 'https://en.wikipedia.org/wiki/Aleppo_International_Airport'},
     {"name": 'Latakia Bassel Al-Assad Airport', "city": 'Latakia', "country": 'Syria', "iata": 'LTK', "icao": 'OSLK', "lat": 35.4011, "lon": 35.9487, "alt": 157, "tz": 'Asia/Damascus', "wiki": 'https://en.wikipedia.org/wiki/Latakia_Bassel_Al-Assad_Airport'},
     {"name": 'Deir ez-Zor Airport', "city": 'Deir ez-Zor', "country": 'Syria', "iata": 'DEZ', "icao": 'OSDZ', "lat": 35.2854, "lon": 40.176, "alt": 700, "tz": 'Asia/Damascus', "wiki": 'https://en.wikipedia.org/wiki/Deir_ez-Zor_Airport'},
     {"name": 'Qamishli Airport', "city": 'Qamishli', "country": 'Syria', "iata": 'KAC', "icao": 'OSKL', "lat": 37.0206, "lon": 41.1914, "alt": 1480, "tz": 'Asia/Damascus', "wiki": 'https://en.wikipedia.org/wiki/Qamishli_Airport'},
@@ -2824,6 +2824,264 @@ AIRPORTS = [
     {"name": 'Clark Air Base (closed to USAF 1991, now Clark Intl CRK)', "city": 'Angeles City', "country": 'Philippines', "iata": 'CRK', "icao": 'RPLC', "lat": 15.1859, "lon": 120.5598, "alt": 484, "tz": 'Asia/Manila', "wiki": 'https://en.wikipedia.org/wiki/Clark_International_Airport'},
     # Subic Bay NAS — major US Navy installation; closed 1992 after Mt Pinatubo and Philippine Senate vote; now a freeport with Subic Bay Intl Airport
     {"name": 'Subic Bay Naval Air Station (closed to US Navy 1992)', "city": 'Olongapo', "country": 'Philippines', "iata": 'SFS', "icao": 'RPLB', "lat": 14.7944, "lon": 120.2704, "alt": 64, "tz": 'Asia/Manila', "wiki": 'https://en.wikipedia.org/wiki/Subic_Bay_International_Airport'},
+
+
+    # ══════════════════════════════════════════════════════════════════════════
+    # GENERAL AVIATION AIRPORTS
+    # Prominent GA/bizjet/training airports that are major hubs in their own
+    # right despite having little or no scheduled commercial service.
+    # ══════════════════════════════════════════════════════════════════════════
+
+    # ── Australia ─────────────────────────────────────────────────────────────
+    # Bankstown — Australia's busiest airport by movements; Sydney's GA hub
+    {"name": 'Bankstown Airport', "city": 'Sydney', "country": 'Australia', "iata": 'BWU', "icao": 'YSBK', "lat": -33.9244, "lon": 150.9883, "alt": 29, "tz": 'Australia/Sydney', "wiki": 'https://en.wikipedia.org/wiki/Bankstown_Airport'},
+    # Camden — Sydney's second GA hub; training and historic warbirds; ~65km SW of CBD
+    {"name": 'Camden Airport', "city": 'Sydney', "country": 'Australia', "iata": 'CDN', "icao": 'YSCN', "lat": -34.0403, "lon": 150.6869, "alt": 230, "tz": 'Australia/Sydney', "wiki": 'https://en.wikipedia.org/wiki/Camden_Airport'},
+    # Moorabbin — Melbourne's GA hub; one of Australia's busiest training airports
+    {"name": 'Moorabbin Airport', "city": 'Melbourne', "country": 'Australia', "iata": 'MBW', "icao": 'YMMB', "lat": -37.9758, "lon": 145.1022, "alt": 50, "tz": 'Australia/Melbourne', "wiki": 'https://en.wikipedia.org/wiki/Moorabbin_Airport'},
+    # Jandakot — Perth's GA hub; busiest airport in WA by movements
+    {"name": 'Jandakot Airport', "city": 'Perth', "country": 'Australia', "iata": 'JAD', "icao": 'YPJT', "lat": -32.0975, "lon": 115.8808, "alt": 99, "tz": 'Australia/Perth', "wiki": 'https://en.wikipedia.org/wiki/Jandakot_Airport'},
+    # Archerfield — Brisbane's main GA/training airport; former WWII RAAF base
+    {"name": 'Archerfield Airport', "city": 'Brisbane', "country": 'Australia', "iata": 'ACF', "icao": 'YBAF', "lat": -27.5703, "lon": 153.0083, "alt": 63, "tz": 'Australia/Brisbane', "wiki": 'https://en.wikipedia.org/wiki/Archerfield_Airport'},
+    # Parafield — Adelaide's GA hub; major flight training centre
+    {"name": 'Parafield Airport', "city": 'Adelaide', "country": 'Australia', "iata": 'PLO', "icao": 'YPPF', "lat": -34.7933, "lon": 138.6328, "alt": 57, "tz": 'Australia/Adelaide', "wiki": 'https://en.wikipedia.org/wiki/Parafield_Airport'},
+
+    # ── United States — Northeast ──────────────────────────────────────────────
+    # Teterboro — the New York metro's premier bizjet airport; serves Wall St & media elite
+    {"name": 'Teterboro Airport', "city": 'Teterboro', "country": 'United States', "iata": 'TEB', "icao": 'KTEB', "lat": 40.8501, "lon": -74.0608, "alt": 9, "tz": 'America/New_York', "wiki": 'https://en.wikipedia.org/wiki/Teterboro_Airport'},
+    # Westchester County — suburban NYC bizjet/GA hub; already in DB as HPN ✓
+    # White Plains / HPN already in DB
+    # Hanscom Field — Boston metro bizjet hub; also USAF
+    {"name": 'Hanscom Field', "city": 'Bedford', "country": 'United States', "iata": 'BED', "icao": 'KBED', "lat": 42.4700, "lon": -71.2890, "alt": 133, "tz": 'America/New_York', "wiki": 'https://en.wikipedia.org/wiki/Hanscom_Field'},
+    # Potomac Airfield / College Park — oldest continuously operating airport in the world (1909)
+    {"name": 'College Park Airport', "city": 'College Park', "country": 'United States', "iata": 'CGS', "icao": 'KCGS', "lat": 38.9806, "lon": -76.9223, "alt": 48, "tz": 'America/New_York', "wiki": 'https://en.wikipedia.org/wiki/College_Park_Airport'},
+    # Palm Beach County Park — GA reliever for KPBI
+    {"name": 'Palm Beach County Park Airport', "city": 'Lantana', "country": 'United States', "iata": 'LNA', "icao": 'KLNA', "lat": 26.5930, "lon": -80.0851, "alt": 14, "tz": 'America/New_York', "wiki": 'https://en.wikipedia.org/wiki/Palm_Beach_County_Park_Airport'},
+    # Boca Raton — busy SE Florida GA airport
+    {"name": 'Boca Raton Airport', "city": 'Boca Raton', "country": 'United States', "iata": 'BCT', "icao": 'KBCT', "lat": 26.3785, "lon": -80.1077, "alt": 13, "tz": 'America/New_York', "wiki": 'https://en.wikipedia.org/wiki/Boca_Raton_Airport'},
+    # Pompano Beach Airpark — north Broward County GA hub
+    {"name": 'Pompano Beach Airpark', "city": 'Pompano Beach', "country": 'United States', "iata": 'PMP', "icao": 'KPMP', "lat": 26.2471, "lon": -80.1110, "alt": 19, "tz": 'America/New_York', "wiki": 'https://en.wikipedia.org/wiki/Pompano_Beach_Airpark'},
+    # Orlando Executive — bizjet/GA airport downtown; predates MCO
+    {"name": 'Orlando Executive Airport', "city": 'Orlando', "country": 'United States', "iata": 'ORL', "icao": 'KORL', "lat": 28.5455, "lon": -81.3329, "alt": 113, "tz": 'America/New_York', "wiki": 'https://en.wikipedia.org/wiki/Orlando_Executive_Airport'},
+
+    # ── United States — Texas ──────────────────────────────────────────────────
+    # Addison — Dallas metro's premier bizjet hub; more bizjet ops than DFW
+    {"name": 'Addison Airport', "city": 'Addison', "country": 'United States', "iata": 'ADS', "icao": 'KADS', "lat": 32.9686, "lon": -96.8364, "alt": 644, "tz": 'America/Chicago', "wiki": 'https://en.wikipedia.org/wiki/Addison_Airport'},
+    # Sugar Land Regional — Houston southwest GA/bizjet hub
+    {"name": 'Sugar Land Regional Airport', "city": 'Sugar Land', "country": 'United States', "iata": 'SGR', "icao": 'KSGR', "lat": 29.6223, "lon": -95.6565, "alt": 82, "tz": 'America/Chicago', "wiki": 'https://en.wikipedia.org/wiki/Sugar_Land_Regional_Airport'},
+
+    # ── United States — Southwest / Mountain ──────────────────────────────────
+    # Scottsdale — Phoenix metro's leading bizjet/GA airport
+    {"name": 'Scottsdale Airport', "city": 'Scottsdale', "country": 'United States', "iata": 'SCF', "icao": 'KSDL', "lat": 33.6229, "lon": -111.9111, "alt": 1510, "tz": 'America/Phoenix', "wiki": 'https://en.wikipedia.org/wiki/Scottsdale_Airport'},
+    # Deer Valley — Phoenix northwest reliever; one of busiest GA airports in US
+    {"name": 'Deer Valley Airport', "city": 'Phoenix', "country": 'United States', "iata": 'DVT', "icao": 'KDVT', "lat": 33.6883, "lon": -112.0827, "alt": 1478, "tz": 'America/Phoenix', "wiki": 'https://en.wikipedia.org/wiki/Deer_Valley_Airport'},
+    # Falcon Field — Mesa AZ; major training airport; WWII RAF training base
+    {"name": 'Falcon Field Airport', "city": 'Mesa', "country": 'United States', "iata": 'FFZ', "icao": 'KFFZ', "lat": 33.4608, "lon": -111.7280, "alt": 1394, "tz": 'America/Phoenix', "wiki": 'https://en.wikipedia.org/wiki/Falcon_Field_Airport'},
+    # North Las Vegas — GA reliever for LAS; very busy training airport
+    {"name": 'North Las Vegas Airport', "city": 'North Las Vegas', "country": 'United States', "iata": 'VGT', "icao": 'KVGT', "lat": 36.2121, "lon": -115.1944, "alt": 2205, "tz": 'America/Los_Angeles', "wiki": 'https://en.wikipedia.org/wiki/North_Las_Vegas_Airport'},
+    # Henderson Executive — Las Vegas south GA hub
+    {"name": 'Henderson Executive Airport', "city": 'Henderson', "country": 'United States', "iata": 'HSH', "icao": 'KHND', "lat": 35.9728, "lon": -115.1344, "alt": 2492, "tz": 'America/Los_Angeles', "wiki": 'https://en.wikipedia.org/wiki/Henderson_Executive_Airport'},
+    # Centennial — Denver south metro GA/bizjet hub; one of busiest GA airports in US
+    {"name": 'Centennial Airport', "city": 'Englewood', "country": 'United States', "iata": 'APA', "icao": 'KAPA', "lat": 39.5701, "lon": -104.8494, "alt": 5885, "tz": 'America/Denver', "wiki": 'https://en.wikipedia.org/wiki/Centennial_Airport'},
+
+    # ── United States — California ─────────────────────────────────────────────
+    # Van Nuys — LA metro's busiest GA airport; one of world's busiest GA airports
+    {"name": 'Van Nuys Airport', "city": 'Van Nuys', "country": 'United States', "iata": 'VNY', "icao": 'KVNY', "lat": 34.2098, "lon": -118.4898, "alt": 802, "tz": 'America/Los_Angeles', "wiki": 'https://en.wikipedia.org/wiki/Van_Nuys_Airport'},
+    # Santa Monica — famous LA GA airport; closed 2028; birthplace of DC-3
+    {"name": 'Santa Monica Airport', "city": 'Santa Monica', "country": 'United States', "iata": 'SMO', "icao": 'KSMO', "lat": 34.0158, "lon": -118.4514, "alt": 177, "tz": 'America/Los_Angeles', "wiki": 'https://en.wikipedia.org/wiki/Santa_Monica_Airport'},
+    # Camarillo — Ventura County GA hub; home of many warbird collections
+    {"name": 'Camarillo Airport', "city": 'Camarillo', "country": 'United States', "iata": 'CMA', "icao": 'KCMA', "lat": 34.2137, "lon": -119.0944, "alt": 77, "tz": 'America/Los_Angeles', "wiki": 'https://en.wikipedia.org/wiki/Camarillo_Airport'},
+    # Hawthorne — LA south; Jack Northrop Field; near SpaceX HQ
+    {"name": 'Hawthorne Municipal Airport', "city": 'Hawthorne', "country": 'United States', "iata": 'HHR', "icao": 'KHHR', "lat": 33.9228, "lon": -118.3352, "alt": 66, "tz": 'America/Los_Angeles', "wiki": 'https://en.wikipedia.org/wiki/Hawthorne_Municipal_Airport'},
+    # Torrance — LA south GA hub
+    {"name": 'Torrance Airport', "city": 'Torrance', "country": 'United States', "iata": 'TOA', "icao": 'KTOA', "lat": 33.8034, "lon": -118.3396, "alt": 103, "tz": 'America/Los_Angeles', "wiki": 'https://en.wikipedia.org/wiki/Torrance_Airport'},
+    # Whiteman — NE LA valley; busy training airport
+    {"name": 'Whiteman Airport', "city": 'Pacoima', "country": 'United States', "iata": 'WHP', "icao": 'KWHP', "lat": 34.2593, "lon": -118.4134, "alt": 1003, "tz": 'America/Los_Angeles', "wiki": 'https://en.wikipedia.org/wiki/Whiteman_Airport'},
+    # Brackett Field — eastern LA county; La Verne
+    {"name": 'Brackett Field', "city": 'La Verne', "country": 'United States', "iata": 'POC', "icao": 'KPOC', "lat": 34.0915, "lon": -117.7819, "alt": 1011, "tz": 'America/Los_Angeles', "wiki": 'https://en.wikipedia.org/wiki/Brackett_Field'},
+    # Fullerton — north Orange County GA hub
+    {"name": 'Fullerton Municipal Airport', "city": 'Fullerton', "country": 'United States', "iata": 'FUL', "icao": 'KFUL', "lat": 33.8720, "lon": -117.9800, "alt": 96, "tz": 'America/Los_Angeles', "wiki": 'https://en.wikipedia.org/wiki/Fullerton_Municipal_Airport'},
+    # El Monte — San Gabriel valley GA
+    {"name": 'San Gabriel Valley Airport', "city": 'El Monte', "country": 'United States', "iata": 'EMT', "icao": 'KEMT', "lat": 34.0861, "lon": -118.0348, "alt": 296, "tz": 'America/Los_Angeles', "wiki": 'https://en.wikipedia.org/wiki/San_Gabriel_Valley_Airport'},
+    # Hayward Executive — East Bay GA hub
+    {"name": 'Hayward Executive Airport', "city": 'Hayward', "country": 'United States', "iata": 'HWD', "icao": 'KHWD', "lat": 37.6589, "lon": -122.1221, "alt": 52, "tz": 'America/Los_Angeles', "wiki": 'https://en.wikipedia.org/wiki/Hayward_Executive_Airport'},
+    # San Carlos — Peninsula GA hub; extremely busy pattern
+    {"name": 'San Carlos Airport', "city": 'San Carlos', "country": 'United States', "iata": 'SQL', "icao": 'KSQL', "lat": 37.5119, "lon": -122.2497, "alt": 5, "tz": 'America/Los_Angeles', "wiki": 'https://en.wikipedia.org/wiki/San_Carlos_Airport'},
+    # Palo Alto — Silicon Valley GA hub; home of many tech executive flights
+    {"name": 'Palo Alto Airport', "city": 'Palo Alto', "country": 'United States', "iata": 'PAO', "icao": 'KPAO', "lat": 37.4611, "lon": -122.1147, "alt": 4, "tz": 'America/Los_Angeles', "wiki": 'https://en.wikipedia.org/wiki/Palo_Alto_Airport'},
+    # Reid-Hillview — San Jose east GA; closure ongoing controversy
+    {"name": 'Reid-Hillview Airport', "city": 'San Jose', "country": 'United States', "iata": 'RHV', "icao": 'KRHV', "lat": 37.3329, "lon": -121.8196, "alt": 133, "tz": 'America/Los_Angeles', "wiki": 'https://en.wikipedia.org/wiki/Reid-Hillview_Airport'},
+    # Napa County — wine country GA
+    {"name": 'Napa County Airport', "city": 'Napa', "country": 'United States', "iata": 'APC', "icao": 'KAPC', "lat": 38.2132, "lon": -122.2807, "alt": 35, "tz": 'America/Los_Angeles', "wiki": 'https://en.wikipedia.org/wiki/Napa_County_Airport'},
+    # Livermore — Tri-Valley GA hub east of Bay Area
+    {"name": 'Livermore Municipal Airport', "city": 'Livermore', "country": 'United States', "iata": 'LVK', "icao": 'KLVK', "lat": 37.6934, "lon": -121.8196, "alt": 400, "tz": 'America/Los_Angeles', "wiki": 'https://en.wikipedia.org/wiki/Livermore_Municipal_Airport'},
+
+    # ── United Kingdom ─────────────────────────────────────────────────────────
+    # Farnborough — UK's premier bizjet airport; home of the famous airshow
+    {"name": 'Farnborough Airport', "city": 'Farnborough', "country": 'United Kingdom', "iata": 'FAB', "icao": 'EGLF', "lat": 51.2758, "lon": -0.7764, "alt": 238, "tz": 'Europe/London', "wiki": 'https://en.wikipedia.org/wiki/Farnborough_Airport'},
+    # Biggin Hill — famous Battle of Britain airfield; now London bizjet hub
+    {"name": 'London Biggin Hill Airport', "city": 'Biggin Hill', "country": 'United Kingdom', "iata": 'BQH', "icao": 'EGKB', "lat": 51.3308, "lon": 0.0325, "alt": 598, "tz": 'Europe/London', "wiki": 'https://en.wikipedia.org/wiki/London_Biggin_Hill_Airport'},
+    # Oxford — major UK flight training hub; also bizjet
+    {"name": 'Oxford Airport', "city": 'Oxford', "country": 'United Kingdom', "iata": 'OXF', "icao": 'EGTK', "lat": 51.8369, "lon": -1.3200, "alt": 270, "tz": 'Europe/London', "wiki": 'https://en.wikipedia.org/wiki/Oxford_Airport'},
+    # Cranfield — home of Cranfield University aerospace; research & bizjet
+    {"name": 'Cranfield Airport', "city": 'Cranfield', "country": 'United Kingdom', "iata": 'CAX', "icao": 'EGTC', "lat": 52.0722, "lon": -0.6167, "alt": 358, "tz": 'Europe/London', "wiki": 'https://en.wikipedia.org/wiki/Cranfield_Airport'},
+    # Elstree — NW London suburban GA; home of many flying schools
+    {"name": 'Elstree Aerodrome', "city": 'Elstree', "country": 'United Kingdom', "iata": 'ELS_H', "icao": 'EGTR', "lat": 51.6558, "lon": -0.3258, "alt": 332, "tz": 'Europe/London', "wiki": 'https://en.wikipedia.org/wiki/Elstree_Aerodrome'},
+    # White Waltham — Berkshire; home of West London Aero Club; one of UK's oldest
+    {"name": 'White Waltham Airfield', "city": 'White Waltham', "country": 'United Kingdom', "iata": 'WEW', "icao": 'EGLM', "lat": 51.5008, "lon": -0.7744, "alt": 131, "tz": 'Europe/London', "wiki": 'https://en.wikipedia.org/wiki/White_Waltham_Airfield'},
+    # Bristol Filton — historic aviation site; Concorde built here; now bizjet
+    {"name": 'Bristol Filton Airport', "city": 'Bristol', "country": 'United Kingdom', "iata": 'FZO', "icao": 'EGTG', "lat": 51.5194, "lon": -2.5908, "alt": 226, "tz": 'Europe/London', "wiki": 'https://en.wikipedia.org/wiki/Bristol_Filton_Airport'},
+    # Nottingham — East Midlands GA hub
+    {"name": 'Nottingham Airport', "city": 'Nottingham', "country": 'United Kingdom', "iata": 'NQT', "icao": 'EGBN', "lat": 52.9192, "lon": -1.0792, "alt": 138, "tz": 'Europe/London', "wiki": 'https://en.wikipedia.org/wiki/Nottingham_Airport'},
+    # Land's End — famous western tip of England; small but iconic
+    {"name": "Land's End Airport", "city": "Land's End", "country": 'United Kingdom', "iata": 'LEQ', "icao": 'EGHC', "lat": 50.1028, "lon": -5.6706, "alt": 401, "tz": 'Europe/London', "wiki": "https://en.wikipedia.org/wiki/Land%27s_End_Airport"},
+
+    # ── Europe — Continental ───────────────────────────────────────────────────
+    # Paris Lognes — main Paris GA reliever east of the city
+    {"name": 'Paris Lognes Emerainville Airport', "city": 'Lognes', "country": 'France', "iata": 'LGF', "icao": 'LFPL', "lat": 48.7644, "lon": 2.6236, "alt": 375, "tz": 'Europe/Paris', "wiki": 'https://en.wikipedia.org/wiki/Lognes_%E2%80%93_Emerainville_Aerodrome'},
+    # Toussus-le-Noble — Paris SW GA hub; one of busiest GA airports in France
+    {"name": 'Toussus-le-Noble Airport', "city": 'Toussus-le-Noble', "country": 'France', "iata": 'TNF', "icao": 'LFPN', "lat": 48.7519, "lon": 2.1061, "alt": 538, "tz": 'Europe/Paris', "wiki": 'https://en.wikipedia.org/wiki/Toussus-le-Noble_Airport'},
+    # Beauvais-Tillé — Paris's third airport; major LCC hub (Ryanair base); ~80km north of Paris
+    {"name": 'Beauvais-Tillé Airport', "city": 'Beauvais', "country": 'France', "iata": 'BVA', "icao": 'LFOB', "lat": 49.4544, "lon": 2.1128, "alt": 359, "tz": 'Europe/Paris', "wiki": 'https://en.wikipedia.org/wiki/Beauvais%E2%80%93Till%C3%A9_Airport'},
+    # Egelsbach — Frankfurt GA reliever; busiest GA airport in Germany
+    {"name": 'Egelsbach Airport', "city": 'Egelsbach', "country": 'Germany', "iata": 'QEF', "icao": 'EDFE', "lat": 49.9597, "lon": 8.6456, "alt": 384, "tz": 'Europe/Berlin', "wiki": 'https://en.wikipedia.org/wiki/Egelsbach_Airport'},
+    # Friedrichshafen — Lake Constance; also has scheduled (already in DB as FDH) — skip
+    # Cannes Mandelieu — Côte d'Azur bizjet/GA hub; Formula 1 crowd
+    {"name": 'Cannes Mandelieu Airport', "city": 'Cannes', "country": 'France', "iata": 'CEQ', "icao": 'LFMD', "lat": 43.5420, "lon": 6.9531, "alt": 13, "tz": 'Europe/Paris', "wiki": 'https://en.wikipedia.org/wiki/Cannes_Mandelieu_Airport'},
+    # Aosta — Alpine GA hub; Italy's highest airport; scenic approach
+    # Samedan — St. Moritz; Europe's highest airport; billionaire playground
+    {"name": 'Samedan Airport', "city": 'St. Moritz', "country": 'Switzerland', "iata": 'SMV', "icao": 'LSZS', "lat": 46.5341, "lon": 9.8841, "alt": 5600, "tz": 'Europe/Zurich', "wiki": 'https://en.wikipedia.org/wiki/Samedan_Airport'},
+
+    # ── Asia ───────────────────────────────────────────────────────────────────
+    # Seletar — Singapore's GA/bizjet hub; already in DB as XSP ✓
+    # Subang Sultan Abdul Aziz — KL's GA hub; already in DB as SZB ✓
+    # Boundary Bay — Vancouver GA hub
+    {"name": 'Boundary Bay Airport', "city": 'Delta', "country": 'Canada', "iata": 'YDT', "icao": 'CZBB', "lat": 49.0742, "lon": -123.0119, "alt": 6, "tz": 'America/Vancouver', "wiki": 'https://en.wikipedia.org/wiki/Boundary_Bay_Airport'},
+    # Buttonville — Toronto GA; closed 2023; replaced by CYPQ
+    {"name": 'Buttonville Municipal Airport (closed 2023)', "city": 'Markham', "country": 'Canada', "iata": 'YKZ', "icao": 'CYKZ', "lat": 43.8622, "lon": -79.3700, "alt": 650, "tz": 'America/Toronto', "wiki": 'https://en.wikipedia.org/wiki/Buttonville_Municipal_Airport'},
+
+    # ── College Park — world's oldest operating airport ───────────────────────
+    # Already added above in NE US section
+
+    # ── More historical / closed airports ────────────────────────────────────
+
+    # United States
+    # Washington Hoover Airport — DC's first commercial airport; closed when National (DCA) opened 1941
+    {"name": 'Washington Hoover Airport (closed 1941)', "city": 'Arlington', "country": 'United States', "iata": 'WDC', "icao": 'KHOO_H', "lat": 38.8483, "lon": -77.0450, "alt": 10, "tz": 'America/New_York', "wiki": 'https://en.wikipedia.org/wiki/Washington_Hoover_Airport'},
+    # Philadelphia Northeast — Northeast Philly GA airport; closed 2023 for development
+    {"name": 'Philadelphia Northeast Airport (closed 2023)', "city": 'Philadelphia', "country": 'United States', "iata": 'PNE', "icao": 'KPNE', "lat": 40.0819, "lon": -75.0106, "alt": 120, "tz": 'America/New_York', "wiki": 'https://en.wikipedia.org/wiki/Northeast_Philadelphia_Airport'},
+    # Wilkes-Barre Wyoming Valley — closed 2003; airport built on reclaimed coal strip mine
+    {"name": 'Wilkes-Barre Wyoming Valley Airport (closed 2003)', "city": 'Wilkes-Barre', "country": 'United States', "iata": 'WBW', "icao": 'KWBW', "lat": 41.2972, "lon": -75.8511, "alt": 550, "tz": 'America/New_York', "wiki": 'https://en.wikipedia.org/wiki/Wilkes-Barre_Wyoming_Valley_Airport'},
+    # Meigs Field is already in DB
+    # St Louis Parks Airport — general aviation field in Missouri; closed 2002 amid political controversy
+    {"name": 'St. Louis Parks Airport (closed 2002)', "city": 'St. Louis', "country": 'United States', "iata": 'CPS', "icao": 'KCPS', "lat": 38.5711, "lon": -90.1520, "alt": 413, "tz": 'America/Chicago', "wiki": 'https://en.wikipedia.org/wiki/St._Louis_Downtown_Airport'},
+    # Norton AFB / San Bernardino — former SAC bomber base; closed 1994; now industrial
+    {"name": 'San Bernardino International Airport (closed Norton AFB 1994)', "city": 'San Bernardino', "country": 'United States', "iata": 'SBD', "icao": 'KSBD', "lat": 34.0954, "lon": -117.2351, "alt": 1159, "tz": 'America/Los_Angeles', "wiki": 'https://en.wikipedia.org/wiki/San_Bernardino_International_Airport'},
+    # Castle Airport — closed SAC/USAF base near Merced CA; briefly operated as commercial
+    {"name": 'Castle Airport (closed USAF 1995)', "city": 'Atwater', "country": 'United States', "iata": 'MER', "icao": 'KMER', "lat": 37.3805, "lon": -120.5682, "alt": 191, "tz": 'America/Los_Angeles', "wiki": 'https://en.wikipedia.org/wiki/Castle_Airport'},
+    # Hamilton Army Airfield — San Francisco Bay; closed 1975; site now preserved as historic district
+    {"name": 'Hamilton Army Airfield (closed 1975)', "city": 'Novato', "country": 'United States', "iata": 'HAF', "icao": 'KHAF', "lat": 37.8872, "lon": -122.5013, "alt": 2, "tz": 'America/Los_Angeles', "wiki": 'https://en.wikipedia.org/wiki/Hamilton_Army_Airfield'},
+    # Moffett Federal Airfield — NASA/USAF blimp hangar; historic lighter-than-air station
+    {"name": 'Moffett Federal Airfield', "city": 'Mountain View', "country": 'United States', "iata": 'NUQ', "icao": 'KNUQ', "lat": 37.4161, "lon": -122.0489, "alt": 32, "tz": 'America/Los_Angeles', "wiki": 'https://en.wikipedia.org/wiki/Moffett_Federal_Airfield'},
+    # Gary Chicago International — Illinois; famous for being a commercial failure; struggling airport
+    {"name": 'Gary Chicago International Airport', "city": 'Gary', "country": 'United States', "iata": 'GYY', "icao": 'KGYY', "lat": 41.6163, "lon": -87.4128, "alt": 591, "tz": 'America/Chicago', "wiki": 'https://en.wikipedia.org/wiki/Gary_Chicago_International_Airport'},
+    # Zweibrücken — German NATO base converted to commercial; closed 2014
+    {"name": 'Zweibrücken Airport (closed 2014)', "city": 'Zweibrücken', "country": 'Germany', "iata": 'ZQW', "icao": 'EDRZ', "lat": 49.2094, "lon": 7.4007, "alt": 1240, "tz": 'Europe/Berlin', "wiki": 'https://en.wikipedia.org/wiki/Zweibrücken_Airport'},
+    # Mönchengladbach — German city airport; closed 2004; site now commercial/industrial
+    {"name": 'Mönchengladbach Airport (closed 2004)', "city": 'Mönchengladbach', "country": 'Germany', "iata": 'MGL', "icao": 'EDLN', "lat": 51.2303, "lon": 6.5044, "alt": 125, "tz": 'Europe/Berlin', "wiki": 'https://en.wikipedia.org/wiki/Mönchengladbach_Airport'},
+    # Schwerin-Parchim — east German airport; struggled post-reunification; closed 2012
+    {"name": 'Schwerin-Parchim Airport (closed 2012)', "city": 'Parchim', "country": 'Germany', "iata": 'SZW', "icao": 'EDOP', "lat": 53.4270, "lon": 11.7834, "alt": 166, "tz": 'Europe/Berlin', "wiki": 'https://en.wikipedia.org/wiki/Schwerin-Parchim_Airport'},
+    # Rügen Airport — Germany's northernmost island; closed 2019
+    {"name": 'Rügen Airport (closed 2019)', "city": 'Rügen', "country": 'Germany', "iata": 'GTI', "icao": 'EDCG', "lat": 54.3833, "lon": 13.3253, "alt": 69, "tz": 'Europe/Berlin', "wiki": 'https://en.wikipedia.org/wiki/Rügen_Airport'},
+    # Essen Mülheim — Ruhr Valley city airport; closed 2004; site is now a park
+    {"name": 'Essen Mülheim Airport (closed 2004)', "city": 'Essen', "country": 'Germany', "iata": 'ESS', "icao": 'EDLE', "lat": 51.4023, "lon": 6.9373, "alt": 190, "tz": 'Europe/Berlin', "wiki": 'https://en.wikipedia.org/wiki/Essen_Mülheim_Airport'},
+    # Plymouth City Airport UK — closed 2011; city center airport; revived debate ongoing
+    {"name": 'Plymouth City Airport (closed 2011)', "city": 'Plymouth', "country": 'United Kingdom', "iata": 'PLH', "icao": 'EGHD', "lat": 50.4228, "lon": -4.1058, "alt": 476, "tz": 'Europe/London', "wiki": 'https://en.wikipedia.org/wiki/Plymouth_City_Airport'},
+    # Blackpool Airport — closed to regular commercial traffic 2014; intermittent use since
+    {"name": 'Blackpool Airport (closed regular ops 2014)', "city": 'Blackpool', "country": 'United Kingdom', "iata": 'BLK', "icao": 'EGNH', "lat": 53.7717, "lon": -3.0286, "alt": 34, "tz": 'Europe/London', "wiki": 'https://en.wikipedia.org/wiki/Blackpool_Airport'},
+    # Barrow Walney Island — Cumbria; closed 2019 when airline pulled out
+    {"name": 'Barrow Walney Island Airport (closed 2019)', "city": 'Barrow-in-Furness', "country": 'United Kingdom', "iata": 'BWF', "icao": 'EGNL', "lat": 54.1286, "lon": -3.2636, "alt": 173, "tz": 'Europe/London', "wiki": 'https://en.wikipedia.org/wiki/Walney_Island_Airport'},
+    # RAF Scampton — home of the Red Arrows; closed as active RAF station 2022
+    {"name": 'RAF Scampton (Red Arrows base, closed 2022)', "city": 'Scampton', "country": 'United Kingdom', "iata": 'SQZ', "icao": 'EGXP', "lat": 53.3083, "lon": -0.5506, "alt": 202, "tz": 'Europe/London', "wiki": 'https://en.wikipedia.org/wiki/RAF_Scampton'},
+    # Bristol Filton already in DB as FZO
+    # Nicosia International — Cyprus; frozen in time since Turkish invasion July 1974; eerie ghost airport
+    {"name": 'Nicosia International Airport (closed 1974, UN buffer zone)', "city": 'Nicosia', "country": 'Cyprus', "iata": 'NIC', "icao": 'LCNC', "lat": 35.1508, "lon": 33.2761, "alt": 663, "tz": 'Asia/Nicosia', "wiki": 'https://en.wikipedia.org/wiki/Nicosia_International_Airport'},
+    # Gävle-Sandviken — Swedish airport; closed 2015; one of many Swedish regional closures
+    {"name": 'Gävle-Sandviken Airport (closed 2015)', "city": 'Gävle', "country": 'Sweden', "iata": 'GVX', "icao": 'ESSK', "lat": 60.5933, "lon": 16.9514, "alt": 224, "tz": 'Europe/Stockholm', "wiki": 'https://en.wikipedia.org/wiki/Gävle-Sandviken_Airport'},
+    # Baku Bina — Azerbaijan's old Soviet-era airport; replaced by Heydar Aliyev 2014
+    {"name": 'Baku Bina Airport (closed 2014)', "city": 'Baku', "country": 'Azerbaijan', "iata": 'BAK_H', "icao": 'UBBB_H', "lat": 40.4675, "lon": 50.0486, "alt": 10, "tz": 'Asia/Baku', "wiki": 'https://en.wikipedia.org/wiki/Bina_Airport'},
+    # Kyiv Zhuliany/Igor Sikorsky — already in DB above; name updated to note 2022 closure
+    # Kharkiv — already in DB above; name updated to note 2022 closure
+    # Donetsk Sergey Prokofiev — closed 2014 following conflict in Donbas
+    {"name": 'Donetsk Sergey Prokofiev Airport (closed 2014)', "city": 'Donetsk', "country": 'Ukraine', "iata": 'DOK', "icao": 'UKCC', "lat": 48.0736, "lon": 37.7397, "alt": 791, "tz": 'Europe/Kyiv', "wiki": 'https://en.wikipedia.org/wiki/Donetsk_Sergey_Prokofiev_International_Airport'},
+    # Kabul / Hamid Karzai Intl — name updated above to note Taliban disruption since 2021
+    # Sanaa — already in DB above; name updated to note closure
+    # Aleppo — already in DB above; name updated to note closure
+    # Baghdad Muthenna — old RAF Baghdad airfield; closed to civil aviation 2008
+    {"name": 'Baghdad Muthenna Airport (closed civil ops 2008)', "city": 'Baghdad', "country": 'Iraq', "iata": 'BGW_H', "icao": 'ORBS', "lat": 33.3222, "lon": 44.2361, "alt": 111, "tz": 'Asia/Baghdad', "wiki": 'https://en.wikipedia.org/wiki/Muthenna_Airport'},
+    # Agadir Inezgane — Morocco's old Agadir airport; destroyed in 1960 earthquake then rebuilt; closed 2008
+    {"name": 'Agadir Inezgane Airport (closed 2008)', "city": 'Agadir', "country": 'Morocco', "iata": 'AGA_H', "icao": 'GMAI', "lat": 30.3819, "lon": -9.5531, "alt": 20, "tz": 'Africa/Casablanca', "wiki": 'https://en.wikipedia.org/wiki/Agadir_Inezgane_Airport'},
+    # Luanda Quatro de Fevereiro (4 February) old terminal era — still active as LAD but old main terminal closed
+    # Entebbe is still active — skip
+    # Harare Belvedere — Rhodesia/Zimbabwe's original airport; closed 1984 when Harare Intl opened
+    {"name": 'Harare Belvedere Airport (closed 1984)', "city": 'Harare', "country": 'Zimbabwe', "iata": 'BEL_H', "icao": 'FVBL', "lat": -17.8317, "lon": 30.9736, "alt": 4856, "tz": 'Africa/Harare', "wiki": 'https://en.wikipedia.org/wiki/Belvedere_Airport'},
+    # Salisbury/Harare connection — Salisbury Airport became Harare — same site skip
+    # Johannesburg Rand Airport — original JHB airport; GA now; historically significant
+    {"name": 'Johannesburg Rand Airport (closed to scheduled ops 1952)', "city": 'Germiston', "country": 'South Africa', "iata": 'QRA', "icao": 'FAGM', "lat": -26.2425, "lon": 28.1511, "alt": 5483, "tz": 'Africa/Johannesburg', "wiki": 'https://en.wikipedia.org/wiki/Rand_Airport'},
+    # Tsingtao Liuting — old Qingdao airport; replaced by Jiaodong 2021
+    {"name": 'Qingdao Liuting Airport (closed 2021)', "city": 'Qingdao', "country": 'China', "iata": 'TAO_H', "icao": 'ZSQD_H', "lat": 36.2661, "lon": 120.3742, "alt": 33, "tz": 'Asia/Shanghai', "wiki": 'https://en.wikipedia.org/wiki/Qingdao_Liuting_International_Airport'},
+    # Chengdu Shuangliu — old Chengdu airport; replaced by Tianfu 2021; still partly operating
+    {"name": 'Chengdu Shuangliu Airport (closed intl 2021)', "city": 'Chengdu', "country": 'China', "iata": 'CTU_H', "icao": 'ZUUU_H', "lat": 30.5783, "lon": 103.9467, "alt": 1625, "tz": 'Asia/Shanghai', "wiki": 'https://en.wikipedia.org/wiki/Chengdu_Shuangliu_International_Airport'},
+    # Hong Kong Kai Tak already in DB as KKS ✓
+    # Osaka Itami domestic — still active; skip
+    # Suvarnabhumi predecessor — Don Mueang still active; skip
+    # Seoul Gimpo — still active as GMP; skip
+    # Macau old seaplane terminal — no formal IATA
+    # Taipei Songshan — still active as TSA; skip
+    # Colombo Ratmalana — still active as RML; skip
+    # Lahore Walton — old Lahore airport; replaced by Allama Iqbal
+    {"name": 'Lahore Walton Airport (closed 1962)', "city": 'Lahore', "country": 'Pakistan', "iata": 'LWA', "icao": 'OPLT', "lat": 31.4961, "lon": 74.3461, "alt": 702, "tz": 'Asia/Karachi', "wiki": 'https://en.wikipedia.org/wiki/Walton_Airport'},
+    # Dhaka Tejgaon — old Dhaka airport; replaced by Hazrat Shahjalal 1981
+    {"name": 'Dhaka Tejgaon Airport (closed 1981)', "city": 'Dhaka', "country": 'Bangladesh', "iata": 'DAC_H', "icao": 'VGEG_H', "lat": 23.7781, "lon": 90.3828, "alt": 24, "tz": 'Asia/Dhaka', "wiki": 'https://en.wikipedia.org/wiki/Tejgaon_Airport'},
+    # Rangoon Mingaladon old terminal — same ICAO as current RGN; skip (same site)
+    # Surabaya Juanda old terminal — same ICAO as current SUB; skip (same site)
+    # Gan Island RAF — famous staging post; Royal Navy/RAF; closed 1976
+    {"name": 'RAF Gan / Addu Atoll (closed 1976)', "city": 'Addu Atoll', "country": 'Maldives', "iata": 'GAN_H', "icao": 'VRMG_H', "lat": -0.6933, "lon": 73.1556, "alt": 6, "tz": 'Indian/Maldives', "wiki": 'https://en.wikipedia.org/wiki/RAF_Gan'},
+    # Butterworth — Malaysian RAF/RAAF base opposite Penang; closed to civil ops
+    {"name": 'RMAF Butterworth (closed civil ops 1970)', "city": 'Butterworth', "country": 'Malaysia', "iata": 'BWH', "icao": 'WMKB', "lat": 5.4659, "lon": 100.3908, "alt": 11, "tz": 'Asia/Kuala_Lumpur', "wiki": 'https://en.wikipedia.org/wiki/RMAF_Butterworth'},
+    # Saigon's Tan Son Nhut — still active as SGN/VVTS; skip (same site)
+    # Brazil
+    # Santos Dumont Rio — still active as SDU; skip
+    # Congonhas São Paulo — still active as CGH; skip
+    # Pampulha Belo Horizonte — still active as PLU; skip
+    # Argentina  
+    # Jorge Newbery still active as AEP; skip
+    # Mendoza old El Plumerillo — same site as MDZ; skip
+    # Australia
+    # Darwin RAAF — same site as DRW; skip
+    # Oakey Army Aviation — military; skip
+    # Tamworth — still active; skip
+    # Parafield — added already; ✓
+    # Archerfield — added already; ✓
+    # Canada
+    # Malton Toronto — same site as YYZ; skip
+    # Rockcliffe Ottawa — historic bush pilot base; closed 1996
+    {"name": 'Rockcliffe Airport (closed 1996)', "city": 'Ottawa', "country": 'Canada', "iata": 'YRO', "icao": 'CYRO', "lat": 45.4608, "lon": -75.6461, "alt": 188, "tz": 'America/Toronto', "wiki": 'https://en.wikipedia.org/wiki/Rockcliffe_Airport'},
+    # Patricia Bay Victoria — WWII RCAF base; closed 1971; site now part of Victoria Intl
+    {"name": 'Patricia Bay Airport (closed 1971)', "city": 'Victoria', "country": 'Canada', "iata": 'YWH', "icao": 'CYWH', "lat": 48.6519, "lon": -123.4492, "alt": 63, "tz": 'America/Vancouver', "wiki": 'https://en.wikipedia.org/wiki/Patricia_Bay_Airport'},
+    # Uplands Ottawa — closed 1964; one of Ottawa's earliest airports
+    {"name": 'Ottawa Uplands Airport (closed 1964)', "city": 'Ottawa', "country": 'Canada', "iata": 'YOW_H', "icao": 'CYOW_H', "lat": 45.3225, "lon": -75.6692, "alt": 374, "tz": 'America/Toronto', "wiki": 'https://en.wikipedia.org/wiki/RCAF_Station_Uplands'},
+    # Mexico
+    # Mexico City old airport (AICM) — still active as MEX; skip (same site)
+    # New NAICM cancelled — already in DB as MEX_H ✓
+    # Acapulco — still active; skip
+    # Buenos Aires Ezeiza — still active; skip
+    # Lima Limatambo — Lima's original airport; replaced by Chavez 1960
+    {"name": 'Lima Limatambo Airport (closed 1960)', "city": 'Lima', "country": 'Peru', "iata": 'LIM_H', "icao": 'SPIM_H', "lat": -12.1033, "lon": -77.0500, "alt": 512, "tz": 'America/Lima', "wiki": 'https://en.wikipedia.org/wiki/Limatambo_Airport'},
+    # Bogotá Techo — Colombia's original main airport; closed 1959 when El Dorado opened
+    {"name": 'Bogotá Techo Airport (closed 1959)', "city": 'Bogotá', "country": 'Colombia', "iata": 'BOG_H', "icao": 'SKBO_H', "lat": 4.6319, "lon": -74.1464, "alt": 8530, "tz": 'America/Bogota', "wiki": 'https://en.wikipedia.org/wiki/Techo_Airport'},
+    # Santiago Los Cerrillos — Chile's original main airport; closed 1994 when Pudahuel/SCL expanded
+    {"name": 'Santiago Los Cerrillos Airport (closed 1994)', "city": 'Santiago', "country": 'Chile', "iata": 'ULC', "icao": 'SCTI', "lat": -33.4886, "lon": -70.7069, "alt": 1578, "tz": 'America/Santiago', "wiki": 'https://en.wikipedia.org/wiki/Los_Cerrillos_Airport'},
 
     # Myanmar
     # Hmawbi — WWII RAF airfield north of Rangoon used heavily in Burma Campaign; decommissioned post-war
