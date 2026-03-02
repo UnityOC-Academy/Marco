@@ -1,0 +1,28 @@
+services:
+  # The "Outboard" Spatial Database
+  db:
+    image: postgis/postgis:18-3.5
+    container_name: airport_db
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=synology_secure_2026
+      - POSTGRES_DB=aviation
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    restart: always
+
+  # The Python 3.14 Logic Engine
+  app:
+    image: python:3.14-slim
+    container_name: airport_app
+    environment:
+      - DATABASE_URL=postgresql://admin:synology_secure_2026@db:5432/aviation
+      - PYTHON_GIL=0 # 🚀 2026 Free-threading enabled for CPU performance
+    volumes:
+      - .:/app
+    working_dir: /app
+    depends_on:
+      - db
+    command: tail -f /dev/null
