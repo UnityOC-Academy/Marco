@@ -9,6 +9,18 @@ AIRPORTS_URL = "https://davidmegginson.github.io/ourairports-data/airports.csv"
 DATA_FILE = "airports.csv"
 EARTH_RADIUS_KM = 6371.0
 
+# Hardcoded data for airports missing or mislabeled in the database
+HARDCODED_AIRPORTS = {
+    "WSI": {
+        "ident": "YSWS",
+        "iata_code": "WSI",
+        "name": "Western Sydney International (Nancy-Bird Walton) Airport",
+        "latitude_deg": -33.8833,
+        "longitude_deg": 150.716,
+        "type": "large_airport"
+    }
+}
+
 def download_data():
     if not os.path.exists(DATA_FILE):
         print("Initial setup: Downloading airport database...")
@@ -27,16 +39,28 @@ def get_airports_in_range(center_code, min_km, max_km, only_large=True):
     center_coords = None
     center_code = center_code.upper()
 
+    # Check hardcoded list for the center airport first
+    if center_code in HARDCODED_AIRPORTS:
+        entry = HARDCODED_AIRPORTS[center_code]
+        center_coords = (entry['latitude_deg'], entry['longitude_deg'])
+
     with open(DATA_FILE, mode='r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:
             airports_data.append(row)
-            # Match against IATA (SYD) or Ident (YSSY)
-            if row['iata_code'] == center_code or row['ident'] == center_code:
-                center_coords = (float(row['latitude_deg']), float(row['longitude_deg']))
+            # Find center coords in CSV if not already found in hardcoded list
+            if not center_coords:
+                if row['iata_code'] == center_code or row['ident'] == center_code:
+                    center_coords = (float(row['latitude_deg']), float(row['longitude_deg']))
     
     if not center_coords:
         return None
+
+    # Add hardcoded airports to the data list for proximity checking
+    for code, data in HARDCODED_AIRPORTS.items():
+        # Avoid duplicating if the code already exists in the CSV
+        if not any(r['iata_code'] == data['iata_code'] for r in airports_data):
+            airports_data.append(data)
 
     results = []
     for row in airports_data:
@@ -47,8 +71,9 @@ def get_airports_in_range(center_code, min_km, max_km, only_large=True):
                                 float(row['latitude_deg']), float(row['longitude_deg']))
 
         if min_km <= dist <= max_km:
-            # Logic Inverted: Default is to skip if not large_airport
-            if only_large and row['type'] != 'large_airport':
+            # Skip if filtering for large and this isn't large (unless it's our hardcoded WSI)
+            is_hardcoded = row.get('iata_code') in HARDCODED_AIRPORTS
+            if only_large and row['type'] != 'large_airport' and not is_hardcoded:
                 continue
 
             results.append({
@@ -58,15 +83,16 @@ def get_airports_in_range(center_code, min_km, max_km, only_large=True):
                 "type": row['type']
             })
 
-    return sorted(results, key=lambda x: x['distance'])
+    # Filter out duplicates (e.g., if the center airport itself is in the results)
+    unique_results = {res['code']: res for res in results}.values()
+    return sorted(unique_results, key=lambda x: x['distance'])
 
 def main():
     parser = argparse.ArgumentParser(description="Find airports within a distance range.")
     parser.add_argument("code", help="Center airport code (e.g., SYD)")
     parser.add_argument("max_dist", type=float, help="Maximum distance in km")
     parser.add_argument("--min", type=float, default=0.0, help="Minimum distance in km")
-    # Added --include-all to disable the default large-only filter
-    parser.add_argument("--include-all", action="store_true", help="Include all airport types (default is large only)")
+    parser.add_argument("--include-all", action="store_true", help="Include all airport types")
 
     args = parser.parse_args()
 
@@ -74,7 +100,6 @@ def main():
         print(f"Error: Min ({args.min}km) is greater than Max ({args.max_dist}km).")
         return
 
-    # Pass the inverted state of include_all to the filtering logic
     nearby = get_airports_in_range(args.code, args.min, args.max_dist, only_large=not args.include_all)
 
     if nearby is None:
