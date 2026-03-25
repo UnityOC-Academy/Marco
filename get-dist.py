@@ -15,6 +15,9 @@ EARTH_RADII = {
     "nm": 3440.1
 }
 
+# Threshold for a "useful" search (50km converted to other units)
+MIN_RECOMMENDED_KM = 50.0
+
 UNIT_LABELS = {"km": "km", "mi": "mi", "nm": "nm"}
 
 HARDCODED_AIRPORTS = {
@@ -28,7 +31,6 @@ HARDCODED_AIRPORTS = {
     }
 }
 
-# Custom Parser to show help on error
 class PrettierParser(argparse.ArgumentParser):
     def error(self, message):
         sys.stderr.write(f'Error: {message}\n\n')
@@ -109,25 +111,42 @@ Examples:
         """
     )
 
-    # Required Arguments Group
     required = parser.add_argument_group('Required Arguments')
     required.add_argument("code", metavar="AIRPORT_CODE", help="IATA or ICAO code (e.g., SYD, KJFK)")
     required.add_argument("max_dist", metavar="MAX_DISTANCE", type=float, help="Maximum radius to search")
 
-    # Optional Arguments Group
     optional = parser.add_argument_group('Optional Settings')
     optional.add_argument("--min", type=float, default=0.0, metavar="DIST", help="Minimum distance (default: 0.0)")
     optional.add_argument("-u", "--unit", choices=["km", "mi", "nm"], default="km", 
-                        help="Distance unit: km, mi (statute), nm (nautical). Default: km")
+                        help="Distance unit: km, mi, nm. Default: km")
     optional.add_argument("--include-all", action="store_true", 
-                        help="Include small/medium airfields (default: major airports only)")
+                        help="Include small/medium airfields")
 
     args = parser.parse_args()
 
-    if args.min > args.max_dist:
-        print(f"Error: Min distance ({args.min}) cannot be greater than Max ({args.max_dist}).")
+    # --- Unit-Aware Logic ---
+    radius = EARTH_RADII[args.unit]
+    half_circumference = math.pi * radius
+    # Convert 50km recommendation to chosen unit
+    unit_threshold = MIN_RECOMMENDED_KM * (radius / EARTH_RADII["km"])
+    
+    # 1. Physical impossibility check (Antipode)
+    if args.max_dist > half_circumference or args.min > half_circumference:
+        print(f"❌ Error: Distance exceeds the antipode limit ({round(half_circumference, 1)} {args.unit})!")
+        print(f"   You're searching further than the opposite side of the planet.")
         return
 
+    # 2. Logic check
+    if args.min > args.max_dist:
+        print(f"❌ Error: Min distance ({args.min}) cannot be greater than Max ({args.max_dist}).")
+        return
+
+    # 3. "Small Search" Warning (Prudence check)
+    if args.max_dist < unit_threshold:
+        print(f"⚠️  Note: {args.max_dist} {args.unit} is a very tight search radius.")
+        print(f"   (Typically, 50km / {round(unit_threshold, 1)} {args.unit} is a standard minimum for meaningful results.)\n")
+
+    # --- Fetching Results ---
     nearby = get_airports_in_range(args.code, args.min, args.max_dist, 
                                    unit=args.unit, only_large=not args.include_all)
 
@@ -138,11 +157,13 @@ Examples:
     else:
         label = "MAJOR" if not args.include_all else "TOTAL"
         unit_str = UNIT_LABELS[args.unit]
-        print(f"\nFound {len(nearby)} {label} airports within {args.max_dist} {unit_str} of {args.code.upper()}:")
+        print(f"Found {len(nearby)} {label} airports within {args.max_dist} {unit_str} of {args.code.upper()}:")
         print("=" * 80)
         print(f"{'Code':<10} | {'Name':<45} | {'Distance'}")
         print("-" * 80)
         for a in nearby:
+            # Hide the center airport from results if distance is 0
+            if a['distance'] == 0: continue
             print(f"{a['code']:<10} | {a['name'][:45]:<45} | {a['distance']} {unit_str}")
         print("=" * 80)
 
