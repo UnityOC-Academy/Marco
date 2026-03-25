@@ -9,69 +9,33 @@ from urllib.request import urlretrieve
 AIRPORTS_URL = "https://davidmegginson.github.io/ourairports-data/airports.csv"
 DATA_FILE = "airports.csv"
 
-# Metric is the primary standard; MI and NM provided for legacy compatibility.
 EARTH_RADII = {"km": 6371.0, "mi": 3958.8, "nm": 3440.1}
-UNIT_LABELS = {"km": "km", "mi": "mi", "nm": "nm", "country": "km"}
+UNIT_LABELS = {"km": "km", "mi": "mi", "nm": "nm", "country": "km", "continent": "km"}
 
-# --- Airline Hub Registry (>10M Annual Passengers) ---
+# --- Airline Hub Registry ---
 AIRLINE_HUBS = {
-    "AA": {"CLT", "DFW", "MIA", "PHL", "PHX", "DCA", "ORD", "LGA", "LAX", "JFK"},
-    "DL": {"ATL", "DTW", "MSP", "SLC", "CVG", "JFK", "LGA", "BOS", "LAX", "SEA"},
-    "UA": {"ORD", "SFO", "EWR", "DEN", "IAH", "LAX", "IAD", "GUM"},
-    "WN": {"ATL", "BWI", "MDW", "DAL", "DEN", "FLL", "HOU", "LAS", "LAX", "MCO", "OAK", "PHX", "SAN"},
-    "AS": {"SEA", "ANC", "PDX", "SFO", "LAX"},
-    "B6": {"JFK", "BOS", "FLL", "MCO", "LGB"},
-    "NK": {"FLL", "MCO", "LAS", "DTW", "ORD"},
-    "F9": {"DEN", "MCO", "PHL", "LAS"},
-    "AC": {"YYZ", "YUL", "YVR", "YYC"},
-    "WS": {"YYC", "YYZ", "YVR"},
-    "LH": {"FRA", "MUC"},
-    "AF": {"CDG", "ORY"},
-    "KL": {"AMS"},
-    "BA": {"LHR", "LGW"},
-    "IB": {"MAD"},
-    "FR": {"DUB", "STN", "BGY", "CRL", "MAD", "BCN", "CPH", "LIS"},
-    "U2": {"LGW", "LTN", "MAN", "AMS", "CDG", "MXP"},
-    "W6": {"BUD", "WAW", "LTN", "VIE", "OTP"},
-    "VY": {"BCN", "FCO", "ORY"},
-    "EI": {"DUB"},
-    "LX": {"ZRH", "GVA"},
-    "OS": {"VIE"},
-    "QF": {"SYD", "MEL", "BNE", "PER", "ADL", "DRW"},
+    # Oceania - New Zealand
+    "NZ": {"AKL", "CHC", "WLG", "ZQN", "NSN", "DUD"}, # Added ZQN, NSN (Regional Hub/Maint), DUD
+    "3C": {"CHT", "AKL", "WLG"}, # Air Chathams (CHT = Chatham Islands)
+    "S8": {"WLG", "BHE", "NSN"}, # Sounds Air (BHE = Blenheim, NSN = Nelson)
+    
+    # Oceania - Australia
+    "QF": {"SYD", "MEL", "BNE", "PER", "ADL", "DRW", "TMW", "CNS", "TSV", "CBR", "WSI"}, 
     "VA": {"BNE", "MEL", "SYD", "ADL", "PER"},
-    "JQ": {"MEL", "SYD", "BNE", "OOL", "AKL", "ADL", "CHC", "CNS", "PER"},
-    "SQ": {"SIN"},
-    "NZ": {"AKL", "CHC", "WLG"},
-    "CX": {"HKG"},
-    "KE": {"ICN", "GMP"},
-    "NH": {"HND", "NRT", "ITM", "KIX"},
-    "JL": {"HND", "NRT", "ITM", "KIX"},
-    "6E": {"DEL", "BOM", "BLR", "CCU", "HYD", "MAA"},
-    "AI": {"DEL", "BOM"},
-    "MH": {"KUL"},
-    "TG": {"BKK"},
-    "VN": {"HAN", "SGN"},
-    "CA": {"PEK", "PKX", "CTU", "TFU", "PVG", "SZX", "HGH", "WUH"},
-    "CZ": {"CAN", "PKX", "PEK", "CKG", "SZX", "WUH"},
-    "MU": {"PVG", "SHA", "PKX", "KMG", "XIY"},
-    "HU": {"HAK", "PEK", "XIY", "SZX"},
-    "EK": {"DXB"},
-    "TK": {"IST", "ESB"},
-    "QR": {"DOH"},
-    "EY": {"AUH"},
-    "SV": {"RUH", "JED", "DMM"},
-    "ET": {"ADD"},
-    "LA": {"SCL", "GRU", "LIM", "BOG", "AEP", "EZE"},
-    "AV": {"BOG", "SAL"},
-    "CM": {"PTY"},
-    "AM": {"MEX"},
+    "JQ": {"MEL", "SYD", "BNE", "OOL", "AKL", "ADL", "CHC", "CNS", "PER", "ZQN", "WLG"},
+    "ZL": {"SYD", "MEL", "BNE", "ADL", "PER", "TSV", "CNS", "WGA", "WSI"},
+
+    # Global Majors (Sample)
+    "SQ": {"SIN"}, "NZ": {"AKL", "CHC", "WLG", "ZQN", "NSN", "DUD"}, 
+    "CX": {"HKG"}, "AA": {"DFW", "ORD", "CLT", "MIA"}, "BA": {"LHR", "LGW"},
+    "LH": {"FRA", "MUC"}, "EK": {"DXB"}, "FJ": {"NAN", "SUV"} # Fiji Airways
 }
 
 HARDCODED_AIRPORTS = {
     "WSI": {
         "ident": "YSWS", "iata_code": "WSI", "type": "large_airport",
         "name": "Western Sydney International Airport",
-        "latitude_deg": -33.8833, "longitude_deg": 150.716, "iso_country": "AU"
+        "latitude_deg": -33.8833, "longitude_deg": 150.716, "iso_country": "AU", "continent": "OC"
     }
 }
 
@@ -87,8 +51,7 @@ def download_data():
         urlretrieve(AIRPORTS_URL, DATA_FILE)
 
 def calculate_distance(lat1, lon1, lat2, lon2, unit="km"):
-    # If unit is 'country', we default to 'km' for the actual math
-    calc_unit = "km" if unit == "country" else unit
+    calc_unit = "km" if unit in ["country", "continent"] else unit
     radius = EARTH_RADII.get(calc_unit, EARTH_RADII["km"])
     phi1, phi2 = math.radians(lat1), math.radians(lat2)
     dphi = math.radians(lat2 - lat1)
@@ -99,35 +62,28 @@ def calculate_distance(lat1, lon1, lat2, lon2, unit="km"):
 def get_airlines_at_airport(iata_code):
     if not iata_code: return ""
     matches = [airline for airline, hubs in AIRLINE_HUBS.items() if iata_code.upper() in hubs]
-    return ", ".join(sorted(matches))
+    return ", ".join(sorted(set(matches)))
 
 def get_airports_in_range(center_code, min_dist, max_dist, unit="km", filter_mode="large", 
-                           hub_airline=None, same_country_only=False):
+                           hub_airline=None, same_country=False, same_continent=False):
     download_data()
     airports_data = []
-    center_coords = None
-    center_country = None
+    origin = None
     center_code = center_code.upper()
 
-    # First pass: find origin details
     with open(DATA_FILE, mode='r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:
             airports_data.append(row)
-            if not center_coords:
+            if not origin:
                 if row['iata_code'] == center_code or row['ident'] == center_code:
-                    center_coords = (float(row['latitude_deg']), float(row['longitude_deg']))
-                    center_country = row['iso_country']
+                    origin = row
     
-    # Check hardcoded fallback
-    if not center_coords and center_code in HARDCODED_AIRPORTS:
-        entry = HARDCODED_AIRPORTS[center_code]
-        center_coords = (entry['latitude_deg'], entry['longitude_deg'])
-        center_country = entry['iso_country']
+    if not origin and center_code in HARDCODED_AIRPORTS:
+        origin = HARDCODED_AIRPORTS[center_code]
 
-    if not center_coords: return None
+    if not origin: return None
 
-    # Merge hardcoded into main set
     for _, data in HARDCODED_AIRPORTS.items():
         if not any(r['iata_code'] == data['iata_code'] for r in airports_data):
             airports_data.append(data)
@@ -138,16 +94,13 @@ def get_airports_in_range(center_code, min_dist, max_dist, unit="km", filter_mod
     results = []
     for row in airports_data:
         if not row['latitude_deg'] or not row['longitude_deg']: continue
-        
-        # Extra constraint: Country Filter
-        if same_country_only and row['iso_country'] != center_country:
-            continue
+        if same_country and row['iso_country'] != origin['iso_country']: continue
+        if same_continent and row['continent'] != origin['continent']: continue
 
-        dist = calculate_distance(center_coords[0], center_coords[1],
+        dist = calculate_distance(float(origin['latitude_deg']), float(origin['longitude_deg']),
                                 float(row['latitude_deg']), float(row['longitude_deg']), unit=unit)
 
-        # Distance logic: ignore radius if "country" unit is used
-        is_in_range = (min_dist <= dist <= max_dist) if unit != "country" else True
+        is_in_range = (min_dist <= dist <= max_dist) if unit not in ["country", "continent"] else True
 
         if is_in_range:
             iata = row['iata_code']
@@ -163,46 +116,29 @@ def get_airports_in_range(center_code, min_dist, max_dist, unit="km", filter_mod
                 "airlines": get_airlines_at_airport(iata)
             })
 
-    unique_results = {res['code']: res for res in results}.values()
-    return sorted(unique_results, key=lambda x: x['distance'])
+    return sorted({res['code']: res for res in results}.values(), key=lambda x: x['distance'])
 
 def main():
-    parser = PrettierParser(
-        description="✈️  Airport Proximity Finder",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-Examples:
-  python get-dist.py SYD 1000 -c         # Airports in AU within 1000km
-  python get-dist.py LHR 500 -u country  # All airports in UK (sorted by dist)
-  python get-dist.py JFK 2000 --hub      # Hubs within 2000km
-        """
-    )
-
-    parser.add_argument("code", help="IATA/ICAO code (e.g., SYD, PEK)")
-    parser.add_argument("max_dist", type=float, help="Max search radius (ignored if unit is 'country')")
-    parser.add_argument("-u", "--unit", choices=["km", "mi", "nm", "country"], default="km",
-                        help="Distance unit. 'country' ignores radius and filters by border.")
-    parser.add_argument("-c", "--same-country", action="store_true", help="Filter by the same country as origin")
+    parser = PrettierParser(description="✈️  Airport Proximity Finder")
+    parser.add_argument("code", help="IATA/ICAO code")
+    parser.add_argument("max_dist", type=float, help="Max search radius")
+    parser.add_argument("-u", "--unit", choices=["km", "mi", "nm", "country", "continent"], default="km")
+    parser.add_argument("-c", "--same-country", action="store_true")
+    parser.add_argument("-K", "--same-continent", action="store_true")
     
     filter_group = parser.add_mutually_exclusive_group()
-    filter_group.add_argument("--ga", action="store_true", help="Include General Aviation")
-    filter_group.add_argument("--hub", nargs='?', const='ALL', metavar="AIRLINE", 
-                        help="Only show hubs.")
-    filter_group.add_argument("--include-all", action="store_true", help="Show all airfields")
+    filter_group.add_argument("--ga", action="store_true")
+    filter_group.add_argument("--hub", nargs='?', const='ALL', metavar="AIRLINE")
+    filter_group.add_argument("--include-all", action="store_true")
 
     args = parser.parse_args()
-
-    mode = "large"
-    if args.include_all: mode = "all"
-    elif args.ga: mode = "ga"
-    elif args.hub: mode = "hub"
-
-    # Handle the "cheeky" unit selection
-    is_country_mode = (args.unit == "country" or args.same_country)
+    mode = "hub" if args.hub else ("ga" if args.ga else ("all" if args.include_all else "large"))
+    country_filter = (args.unit == "country" or args.same_country)
+    continent_filter = (args.unit == "continent" or args.same_continent)
 
     nearby = get_airports_in_range(args.code, 0, args.max_dist, unit=args.unit, 
                                    filter_mode=mode, hub_airline=args.hub, 
-                                   same_country_only=is_country_mode)
+                                   same_country=country_filter, same_continent=continent_filter)
 
     if nearby is None:
         print(f"Error: Could not find '{args.code.upper()}'.")
@@ -210,10 +146,14 @@ Examples:
         print("No matches found.")
     else:
         unit_str = UNIT_LABELS[args.unit]
-        label = "DOMESTIC HUBS" if args.hub else ("DOMESTIC" if is_country_mode else mode.upper())
+        tag = []
+        if country_filter: tag.append("DOMESTIC")
+        if continent_filter: tag.append("CONT.")
+        tag.append("HUBS" if args.hub else mode.upper())
+        label = " ".join(tag)
+        header = f"Found {len(nearby)} {label} within {args.max_dist} {unit_str}" if args.unit not in ["country", "continent"] else f"Found {len(nearby)} {label} entries"
         
-        header_text = f"Found {len(nearby)} {label} within {args.max_dist} {unit_str}" if args.unit != "country" else f"Found {len(nearby)} {label} entries"
-        print(f"\n{header_text} of {args.code.upper()}:")
+        print(f"\n{header} of {args.code.upper()}:")
         print("=" * 110)
         print(f"{'Code':<8} | {'Name':<40} | {'Distance':<12} | {'Hubbed Airlines'}")
         print("-" * 110)
