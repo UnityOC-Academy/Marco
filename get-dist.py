@@ -12,23 +12,26 @@ DATA_FILE = "airports.csv"
 EARTH_RADII = {"km": 6371.0, "mi": 3958.8, "nm": 3440.1}
 UNIT_LABELS = {"km": "km", "mi": "mi", "nm": "nm", "country": "km", "continent": "km"}
 
+# --- Alliance Registry ---
+# STRICTURE: KE is SkyTeam. OZ is Star.
+ALLIANCES = {
+    "oneworld": {"AA", "BA", "IB", "QF", "CX", "JL", "QR", "AY", "AS", "AT", "MH", "UL"},
+    "star": {"UA", "LH", "SQ", "NZ", "AC", "NH", "OZ", "TK", "LX", "OS", "SN", "TP", "AI", "ET"},
+    "skyteam": {"DL", "AF", "KL", "KE", "AM", "AZ", "SV", "VN", "GA", "ME"}
+}
+
 # --- Airline Hub Registry ---
 AIRLINE_HUBS = {
-    # Oceania - New Zealand
-    "NZ": {"AKL", "CHC", "WLG", "ZQN", "NSN", "DUD"}, # Added ZQN, NSN (Regional Hub/Maint), DUD
-    "3C": {"CHT", "AKL", "WLG"}, # Air Chathams (CHT = Chatham Islands)
-    "S8": {"WLG", "BHE", "NSN"}, # Sounds Air (BHE = Blenheim, NSN = Nelson)
-    
-    # Oceania - Australia
+    "KE": {"ICN", "GMP", "PUS"}, # SkyTeam
+    "OZ": {"ICN", "GMP", "PUS"}, # Star Alliance
+    "JL": {"HND", "NRT", "ITM", "KIX"}, "NH": {"HND", "NRT", "ITM", "KIX"},
+    "CX": {"HKG"}, "SQ": {"SIN"}, "NZ": {"AKL", "CHC", "WLG", "ZQN", "NSN", "DUD"},
+    "EI": {"DUB", "SNN", "ORK"}, "BA": {"LHR", "LGW"}, "IB": {"MAD"}, 
+    "LH": {"FRA", "MUC", "BER", "DUS", "HAM", "STR"}, "AF": {"CDG", "ORY"}, "KL": {"AMS"},
     "QF": {"SYD", "MEL", "BNE", "PER", "ADL", "DRW", "TMW", "CNS", "TSV", "CBR", "WSI"}, 
-    "VA": {"BNE", "MEL", "SYD", "ADL", "PER"},
-    "JQ": {"MEL", "SYD", "BNE", "OOL", "AKL", "ADL", "CHC", "CNS", "PER", "ZQN", "WLG"},
-    "ZL": {"SYD", "MEL", "BNE", "ADL", "PER", "TSV", "CNS", "WGA", "WSI"},
-
-    # Global Majors (Sample)
-    "SQ": {"SIN"}, "NZ": {"AKL", "CHC", "WLG", "ZQN", "NSN", "DUD"}, 
-    "CX": {"HKG"}, "AA": {"DFW", "ORD", "CLT", "MIA"}, "BA": {"LHR", "LGW"},
-    "LH": {"FRA", "MUC"}, "EK": {"DXB"}, "FJ": {"NAN", "SUV"} # Fiji Airways
+    "VA": {"BNE", "MEL", "SYD", "ADL", "PER"}, "UA": {"ORD", "SFO", "EWR", "DEN", "IAH", "LAX", "IAD"},
+    "AA": {"CLT", "DFW", "MIA", "PHL", "PHX", "DCA", "ORD", "LGA", "LAX", "JFK"},
+    "DL": {"ATL", "DTW", "MSP", "SLC", "JFK", "LGA", "BOS", "LAX", "SEA"}
 }
 
 HARDCODED_AIRPORTS = {
@@ -39,33 +42,29 @@ HARDCODED_AIRPORTS = {
     }
 }
 
-class PrettierParser(argparse.ArgumentParser):
-    def error(self, message):
-        sys.stderr.write(f'Error: {message}\n\n')
-        self.print_help()
-        sys.exit(2)
-
 def download_data():
     if not os.path.exists(DATA_FILE):
-        print(">> Initial setup: Downloading airport database...")
         urlretrieve(AIRPORTS_URL, DATA_FILE)
 
 def calculate_distance(lat1, lon1, lat2, lon2, unit="km"):
-    calc_unit = "km" if unit in ["country", "continent"] else unit
-    radius = EARTH_RADII.get(calc_unit, EARTH_RADII["km"])
+    radius = EARTH_RADII.get(unit if unit in EARTH_RADII else "km")
     phi1, phi2 = math.radians(lat1), math.radians(lat2)
-    dphi = math.radians(lat2 - lat1)
-    dlambda = math.radians(lon2 - lon1)
+    dphi, dlambda = math.radians(lat2 - lat1), math.radians(lon2 - lon1)
     a = math.sin(dphi / 2)**2 + math.cos(phi1) * math.cos(phi2) * math.sin(dlambda / 2)**2
     return 2 * radius * math.atan2(math.sqrt(a), math.sqrt(1 - a))
 
-def get_airlines_at_airport(iata_code):
+def get_filtered_airlines(iata_code, alliance_limit=None):
+    """Returns airlines at airport, restricted by alliance if one is active."""
     if not iata_code: return ""
-    matches = [airline for airline, hubs in AIRLINE_HUBS.items() if iata_code.upper() in hubs]
+    matches = [air for air, hubs in AIRLINE_HUBS.items() if iata_code.upper() in hubs]
+    
+    if alliance_limit:
+        members = ALLIANCES.get(alliance_limit.lower(), set())
+        matches = [m for m in matches if m in members]
+        
     return ", ".join(sorted(set(matches)))
 
-def get_airports_in_range(center_code, min_dist, max_dist, unit="km", filter_mode="large", 
-                           hub_airline=None, same_country=False, same_continent=False):
+def get_airports_in_range(center_code, max_dist, unit="km", alliance=None, same_country=False, same_continent=False):
     download_data()
     airports_data = []
     origin = None
@@ -75,21 +74,17 @@ def get_airports_in_range(center_code, min_dist, max_dist, unit="km", filter_mod
         reader = csv.DictReader(f)
         for row in reader:
             airports_data.append(row)
-            if not origin:
-                if row['iata_code'] == center_code or row['ident'] == center_code:
-                    origin = row
+            if not origin and (row['iata_code'] == center_code or row['ident'] == center_code):
+                origin = row
     
-    if not origin and center_code in HARDCODED_AIRPORTS:
-        origin = HARDCODED_AIRPORTS[center_code]
-
+    if not origin and center_code in HARDCODED_AIRPORTS: origin = HARDCODED_AIRPORTS[center_code]
     if not origin: return None
 
-    for _, data in HARDCODED_AIRPORTS.items():
-        if not any(r['iata_code'] == data['iata_code'] for r in airports_data):
-            airports_data.append(data)
-
-    ga_types = {'large_airport', 'medium_airport', 'small_airport'}
-    hub_set = set().union(*AIRLINE_HUBS.values()) if hub_airline == "ALL" else (AIRLINE_HUBS.get(hub_airline.upper(), set()) if hub_airline else set())
+    # Determine which hubs are valid for the current search
+    valid_hubs = set()
+    if alliance:
+        for member in ALLIANCES[alliance.lower()]:
+            valid_hubs.update(AIRLINE_HUBS.get(member, set()))
 
     results = []
     for row in airports_data:
@@ -100,67 +95,52 @@ def get_airports_in_range(center_code, min_dist, max_dist, unit="km", filter_mod
         dist = calculate_distance(float(origin['latitude_deg']), float(origin['longitude_deg']),
                                 float(row['latitude_deg']), float(row['longitude_deg']), unit=unit)
 
-        is_in_range = (min_dist <= dist <= max_dist) if unit not in ["country", "continent"] else True
+        if (unit not in ["country", "continent"]) and dist > max_dist: continue
 
-        if is_in_range:
-            iata = row['iata_code']
-            if filter_mode == "hub" and iata not in hub_set: continue
-            elif filter_mode == "large" and row['type'] != 'large_airport': continue
-            elif filter_mode == "ga" and row['type'] not in ga_types: continue
+        iata = row['iata_code']
+        if alliance and iata not in valid_hubs: continue
+        
+        # Enforce Large Airport rule for general searches
+        if not alliance and row['type'] != 'large_airport': continue
 
-            results.append({
-                "code": iata if iata else row['ident'],
-                "name": row['name'],
-                "distance": round(dist, 2),
-                "type": row['type'],
-                "airlines": get_airlines_at_airport(iata)
-            })
+        display_airlines = get_filtered_airlines(iata, alliance_limit=alliance)
+        if alliance and not display_airlines: continue
+
+        results.append({
+            "code": iata if iata else row['ident'],
+            "name": row['name'],
+            "distance": round(dist, 2),
+            "airlines": display_airlines
+        })
 
     return sorted({res['code']: res for res in results}.values(), key=lambda x: x['distance'])
 
 def main():
-    parser = PrettierParser(description="✈️  Airport Proximity Finder")
-    parser.add_argument("code", help="IATA/ICAO code")
-    parser.add_argument("max_dist", type=float, help="Max search radius")
+    parser = argparse.ArgumentParser(description="✈️ Airport Hub & Alliance Finder")
+    parser.add_argument("code", help="Origin IATA code")
+    parser.add_argument("max_dist", type=float, help="Radius")
     parser.add_argument("-u", "--unit", choices=["km", "mi", "nm", "country", "continent"], default="km")
     parser.add_argument("-c", "--same-country", action="store_true")
     parser.add_argument("-K", "--same-continent", action="store_true")
-    
-    filter_group = parser.add_mutually_exclusive_group()
-    filter_group.add_argument("--ga", action="store_true")
-    filter_group.add_argument("--hub", nargs='?', const='ALL', metavar="AIRLINE")
-    filter_group.add_argument("--include-all", action="store_true")
+    parser.add_argument("--alliance", choices=["oneworld", "star", "skyteam"])
 
     args = parser.parse_args()
-    mode = "hub" if args.hub else ("ga" if args.ga else ("all" if args.include_all else "large"))
-    country_filter = (args.unit == "country" or args.same_country)
-    continent_filter = (args.unit == "continent" or args.same_continent)
+    
+    res = get_airports_in_range(args.code, args.max_dist, unit=args.unit, alliance=args.alliance,
+                                 same_country=(args.unit=="country" or args.same_country),
+                                 same_continent=(args.unit=="continent" or args.same_continent))
 
-    nearby = get_airports_in_range(args.code, 0, args.max_dist, unit=args.unit, 
-                                   filter_mode=mode, hub_airline=args.hub, 
-                                   same_country=country_filter, same_continent=continent_filter)
-
-    if nearby is None:
-        print(f"Error: Could not find '{args.code.upper()}'.")
-    elif not nearby:
+    if not res:
         print("No matches found.")
-    else:
-        unit_str = UNIT_LABELS[args.unit]
-        tag = []
-        if country_filter: tag.append("DOMESTIC")
-        if continent_filter: tag.append("CONT.")
-        tag.append("HUBS" if args.hub else mode.upper())
-        label = " ".join(tag)
-        header = f"Found {len(nearby)} {label} within {args.max_dist} {unit_str}" if args.unit not in ["country", "continent"] else f"Found {len(nearby)} {label} entries"
-        
-        print(f"\n{header} of {args.code.upper()}:")
-        print("=" * 110)
-        print(f"{'Code':<8} | {'Name':<40} | {'Distance':<12} | {'Hubbed Airlines'}")
-        print("-" * 110)
-        for a in nearby:
-            if a['distance'] == 0: continue
-            print(f"{a['code']:<8} | {a['name'][:40]:<40} | {a['distance']:>6} {unit_str:<4} | {a['airlines']}")
-        print("=" * 110)
+        return
+
+    print(f"\nFound {len(res)} results for {args.code.upper()} ({args.alliance or 'All'}):")
+    print("=" * 90)
+    print(f"{'Code':<8} | {'Name':<40} | {'Distance':<12} | {'Airlines'}")
+    print("-" * 90)
+    for a in res:
+        if a['distance'] == 0: continue
+        print(f"{a['code']:<8} | {a['name'][:40]:<40} | {a['distance']:>6} {args.unit:<3} | {a['airlines']}")
 
 if __name__ == "__main__":
     main()
