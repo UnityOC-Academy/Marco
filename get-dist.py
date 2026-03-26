@@ -12,8 +12,13 @@ DATA_FILE = "airports.csv"
 EARTH_RADII = {"km": 6371.0, "mi": 3958.8, "nm": 3440.1}
 
 # --- City Name Overrides ---
-# Maps technical municipality names to recognizable metropolitan areas
 CITY_OVERRIDES = {
+    "MEX": "Mexico-City",
+    "NLU": "Mexico-City (AIFA)",
+    "MTY": "Monterrey",
+    "GDL": "Guadalajara",
+    "TIJ": "Tijuana",
+    "CUN": "Cancun",
     "LYS": "Lyon",
     "CDG": "Paris",
     "ORY": "Paris",
@@ -29,7 +34,7 @@ CITY_OVERRIDES = {
     "EWR": "New-York",
     "JFK": "New-York",
     "LGA": "New-York",
-    "WSI": "Sydney", # Western Sydney International
+    "WSI": "Sydney", 
 }
 
 # --- Alliance Registry ---
@@ -41,16 +46,27 @@ ALLIANCES = {
 
 # --- Airline Hub Registry ---
 AIRLINE_HUBS = {
+    # Mexico (New Additions)
+    "AM": {"MEX", "MTY", "GDL", "CUN", "TIJ"}, # Aeroméxico
+    "Y4": {"MEX", "TIJ", "GDL", "CUN", "MTY", "BJX"}, # Volaris
+    "VB": {"MTY", "MEX", "GDL", "CUN", "TIJ"}, # Viva Aerobus
+    
+    # Europe & Nordics
     "LG": {"LUX"}, "DY": {"OSL", "ARN", "CPH", "BGO", "SVG", "TRD", "HEL"}, 
     "SK": {"CPH", "ARN", "OSL"}, "AY": {"HEL"}, "LX": {"ZRH", "GVA"},
     "AZ": {"FCO", "LIN", "MXP"}, "LO": {"WAW"}, "TP": {"LIS", "OPO"},
     "BT": {"RIX", "VNO", "TLL"}, "AF": {"CDG", "ORY", "NCE", "LYS"},
     "KL": {"AMS"}, "BA": {"LHR", "LGW", "LCY"}, "IB": {"MAD", "BCN"},
     "OS": {"VIE"}, "LH": {"FRA", "MUC", "BER", "DUS", "HAM", "STR", "HAJ"},
+    
+    # Oceania & Pacific
     "VA": {"BNE", "MEL", "SYD", "ADL", "PER"}, 
     "QF": {"SYD", "MEL", "BNE", "PER", "ADL", "DRW", "TMW", "CNS", "TSV", "CBR", "WSI"},
     "NZ": {"AKL", "CHC", "WLG", "ZQN", "NSN", "DUD"},
+    "TN": {"PPT"}, "VT": {"PPT", "BOB", "MOZ", "RFP"},
     "HA": {"HNL", "OGG", "KOA", "LIH"}, "AS": {"SEA", "ANC", "PDX", "SFO", "LAX", "HNL"},
+    
+    # Asia & North America
     "KE": {"ICN", "GMP", "PUS"}, "OZ": {"ICN", "GMP", "PUS"},
     "JL": {"HND", "NRT", "ITM", "KIX"}, "NH": {"HND", "NRT", "ITM", "KIX"},
     "CX": {"HKG"}, "SQ": {"SIN"}, "EI": {"DUB", "SNN", "ORK"},
@@ -118,7 +134,6 @@ def get_airports_in_range(center_code, max_dist, unit="km", alliance=None, hub_o
         display_airlines = get_filtered_airlines(iata, alliance_limit=alliance)
         if (hub_only or alliance) and not display_airlines: continue
 
-        # Handle City Name Logic: Override -> Truncate
         if iata in CITY_OVERRIDES:
             short_city = CITY_OVERRIDES[iata]
         else:
