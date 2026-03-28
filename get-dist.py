@@ -46,6 +46,9 @@ CITY_OVERRIDES = {
     "SYD": "Sydney", "WSI": "Sydney",
     "MEL": "Melbourne", "AVV": "Melbourne",
     "SIN": "Singapore", "HKG": "Hong Kong",
+    "POM": "Port Moresby", "NOU": "Noumea",
+    "NAN": "Nadi", "SUV": "Suva", "PPT": "Papeete",
+    "RAR": "Rarotonga", "HIR": "Honiara", "VLI": "Port Vila",
     
     # Scandinavia & Nordics
     "CPH": "Copenhagen", "ARN": "Stockholm", "BMA": "Stockholm",
@@ -58,10 +61,18 @@ CITY_OVERRIDES = {
     # Greenland
     "GOH": "Nuuk", "SFJ": "Kangerlussuaq", "JAV": "Ilulissat",
     
+    # Atlantic & Azores
+    "PDL": "Ponta Delgada", "TER": "Terceira", "HOR": "Horta",
+    "SID": "Sal", "RAI": "Praia",
+
+    # Indian Ocean
+    "MRU": "Mauritius", "RUN": "Saint-Denis", "SEZ": "Victoria",
+    "MLE": "Malé", "TNR": "Antananarivo",
+    
     # Africa
     "JNB": "Johannesburg", "CPT": "Cape Town", "NBO": "Nairobi",
     "ADD": "Addis Ababa", "CAI": "Cairo", "CMN": "Casablanca",
-    "LFW": "Lomé", "MRU": "Mauritius",
+    "LFW": "Lomé",
 
     # Middle East
     "DXB": "Dubai", "DWC": "Dubai", "DOH": "Doha", "AUH": "Abu Dhabi",
@@ -69,7 +80,9 @@ CITY_OVERRIDES = {
     "BAH": "Bahrain", "MCT": "Muscat", "BEY": "Beirut", "AMM": "Amman",
     "KWI": "Kuwait City", "SHJ": "Sharjah",
     
-    # Americas
+    # Americas & Hawaii
+    "HNL": "Honolulu", "OGG": "Kahului", "LIH": "Lihue", "KOA": "Kona",
+    "GUM": "Guam", "SJU": "San Juan",
     "JFK": "New York", "EWR": "New York", "LGA": "New York",
     "ORD": "Chicago", "MDW": "Chicago",
     "IAD": "Washington", "DCA": "Washington", "BWI": "Washington",
@@ -86,41 +99,60 @@ CITY_OVERRIDES = {
 
 # --- Alliance Registry ---
 ALLIANCES = {
-    "oneworld": {"AA", "BA", "IB", "QF", "CX", "JL", "QR", "AY", "AS", "AT", "MH", "UL", "HA", "WY", "RJ"},
+    "oneworld": {"AA", "BA", "IB", "QF", "CX", "JL", "QR", "AY", "AS", "AT", "MH", "UL", "HA", "WY", "RJ", "FJ"},
     "star": {"UA", "LH", "SQ", "NZ", "AC", "NH", "OZ", "TK", "LX", "OS", "SN", "TP", "AI", "ET", "LO", "AZ", "LG", "AV", "CA", "ZH", "TG", "BR", "SA", "MS"},
     "skyteam": {"DL", "AF", "KL", "KE", "AM", "SV", "VN", "GA", "ME", "SK", "MU", "MF", "CI", "KQ"}
 }
 
 # --- Airline Hub Registry ---
 AIRLINE_HUBS = {
+    # Pacific Islands (Oceania)
+    "FJ": {"NAN", "SUV"},
+    "TN": {"PPT"},
+    "VT": {"PPT"},
+    "SB": {"NOU"},
+    "PX": {"POM"},
+    "GZ": {"RAR"},
+    "IE": {"HIR"},
+    "NF": {"VLI"},
+    "ON": {"INU"},
+
+    # Hawaii & US Territories
+    "HA": {"HNL", "OGG", "LIH", "KOA"},
+    "MW": {"HNL", "OGG", "LIH", "KOA"},
+    "UA": {"GUM", "HNL", "ORD", "SFO", "EWR", "DEN", "IAH", "LAX", "IAD"},
+
+    # Atlantic Islands & Azores
+    "S4": {"PDL", "TER", "LIS"},
+    "SP": {"PDL", "HOR", "TER"},
+    "VR": {"SID", "RAI"},
+
+    # Indian Ocean
+    "MK": {"MRU"},
+    "UU": {"RUN"},
+    "HM": {"SEZ"},
+    "Q2": {"MLE"},
+    "MD": {"TNR"},
+
     # Scandinavia & Nordics
-    "SK": {"CPH", "ARN", "OSL"},                            # SAS (SkyTeam)
-    "AY": {"HEL"},                                          # Finnair (Oneworld)
-    "DY": {"OSL", "ARN", "CPH"},                            # Norwegian
-    "FI": {"KEF", "RKV"},                                   # Icelandair
-    "RC": {"FAE"},                                          # Atlantic Airways
-    "WF": {"BGO", "OSL", "TRF"},                            # Widerøe
+    "SK": {"CPH", "ARN", "OSL"},
+    "AY": {"HEL"},
+    "DY": {"OSL", "ARN", "CPH"},
+    "FI": {"KEF", "RKV"},
+    "RC": {"FAE"},
+    "WF": {"BGO", "OSL", "TRF"},
 
     # Baltics
-    "BT": {"RIX", "TLL", "VNO"},                            # airBaltic
+    "BT": {"RIX", "TLL", "VNO"},
 
     # Greenland
-    "GL": {"GOH", "SFJ", "JAV"},                            # Air Greenland
+    "GL": {"GOH", "SFJ", "JAV"},
 
-    # Japan
+    # Japan & Korea & Taiwan
     "JL": {"HND", "NRT", "ITM", "KIX", "FUK", "CTS", "OKA"}, 
     "NH": {"HND", "NRT", "ITM", "KIX", "FUK", "CTS", "NGO"}, 
-    "ZG": {"NRT"},                                          
-    "MM": {"KIX", "NRT", "HND", "CTS", "FUK", "OKA"},       
-    "GK": {"NRT", "KIX", "NGO", "FUK"},                     
-    "HD": {"CTS", "HND"},                                   
-    
-    # Korea
     "KE": {"ICN", "GMP", "PUS", "CJU"},                     
     "OZ": {"ICN", "GMP"},                                   
-    "7C": {"ICN", "GMP", "PUS"},                            
-
-    # Taiwan
     "BR": {"TPE", "KHH"},                                   
     "CI": {"TPE", "KHH"},                                   
     "JX": {"TPE"},                                          
@@ -128,21 +160,10 @@ AIRLINE_HUBS = {
     # Southeast Asia
     "TG": {"BKK"},                                          
     "FD": {"DMK", "BKK", "HKT", "CNX"},                     
-    "5J": {"CEB", "MNL", "CRK", "DVO", "ILO"},              
-    "PR": {"MNL", "CEB", "CRK", "DVO"},                     
     "VN": {"HAN", "SGN", "DAD"},                            
     "GA": {"CGK", "DPS", "SUB"},                            
     "MH": {"KUL"},                                          
-    "AK": {"KUL", "BKI", "KCH", "PEN"},                     
     "SQ": {"SIN"},                                          
-
-    # Mainland China
-    "CA": {"PEK", "PKX", "CTU", "TFU", "PVG", "SHA", "SZX"}, 
-    "MU": {"PVG", "SHA", "KMG", "XIY", "PKX"},              
-    "CZ": {"CAN", "PKX", "SZX", "CSX", "CKG"},              
-    "HU": {"HAK", "PEK", "SZX", "XIY"},                     
-    "ZH": {"SZX", "CAN", "PEK"},                            
-    "MF": {"XMN", "FOC", "PKX"},                            
 
     # Middle East
     "EK": {"DXB"},                                          
@@ -153,36 +174,12 @@ AIRLINE_HUBS = {
     "ME": {"BEY"},                                          
     "GF": {"BAH"},                                          
     "RJ": {"AMM"},                                          
-    "KU": {"KWI"},                                          
-    "FZ": {"DXB"},                                          
-    "G9": {"SHJ", "AUH", "RKT"},                            
 
-    # Africa
-    "ET": {"ADD", "LFW", "LLW"},                            
-    "SA": {"JNB", "CPT", "DUR"},                            
-    "KQ": {"NBO"},                                          
-    "MS": {"CAI", "HBE"},                                   
-    "AT": {"CMN"},                                          
-    "MK": {"MRU"},                                          
-
-    # South & Central America
-    "LA": {"SCL", "GRU", "LIM", "BOG", "AEP"},               
-    "AV": {"BOG", "SAL", "LIM"},                            
-    
-    # North America
-    "AC": {"YYZ", "YVR", "YUL", "YYC", "YOW", "YHZ"}, 
-    "WS": {"YYC", "YYZ", "YVR", "YEG", "YWG"},       
-    "AM": {"MEX", "MTY", "GDL", "CUN", "TIJ"}, 
-    "B6": {"JFK", "BOS", "FLL", "MCO", "LGB", "SJU", "PBI"},
-    "UA": {"ORD", "SFO", "EWR", "DEN", "IAH", "LAX", "IAD", "HNL"},
+    # North & South America
     "AA": {"CLT", "DFW", "MIA", "PHL", "PHX", "DCA", "ORD", "LGA", "LAX", "JFK"},
     "DL": {"ATL", "DTW", "MSP", "SLC", "JFK", "LGA", "BOS", "LAX", "SEA", "HNL"},
-    
-    # Europe & Oceania
-    "BA": {"LHR", "LGW", "LCY"}, "IB": {"MAD", "BCN"},
-    "AF": {"CDG", "ORY", "NCE", "LYS"}, "LH": {"FRA", "MUC", "BER"},
-    "QF": {"SYD", "MEL", "BNE", "PER", "ADL", "DRW", "WSI"},
-    "NZ": {"AKL", "CHC", "WLG"}, "CX": {"HKG"}
+    "LA": {"SCL", "GRU", "LIM", "BOG", "AEP"},               
+    "AV": {"BOG", "SAL", "LIM"}
 }
 
 def download_data():
@@ -256,7 +253,7 @@ def get_airports_in_range(center_code, max_dist, unit="km", alliance=None, count
             "code": iata if iata else row['ident'],
             "name": row['name'],
             "city": display_city,
-            "distance": round(dist, 2),
+            "distance": int(round(dist)),
             "airlines": display_airlines
         })
 
@@ -293,12 +290,13 @@ def main():
     label += "HUBS" if args.hub_only or args.alliance else "LARGE AIRPORTS"
     
     print(f"\nFound {len(res)} {label} for {args.code.upper()}:")
-    print("=" * 130)
-    print(f"{'Code':<8} | {'City':<18} | {'Name':<40} | {'Distance':<12} | {'Airlines'}")
-    print("-" * 130)
+    print("=" * 135)
+    print(f"{'Code':<8} | {'City':<18} | {'Name':<40} | {'Distance':<14} | {'Airlines'}")
+    print("-" * 135)
     for a in res:
         if a['distance'] == 0: continue
-        print(f"{a['code']:<8} | {a['city']:<18} | {a['name'][:40]:<40} | {a['distance']:>6} {args.unit:<3} | {a['airlines']}")
+        dist_str = f"{a['distance']:,} {args.unit}"
+        print(f"{a['code']:<8} | {a['city']:<18} | {a['name'][:40]:<40} | {dist_str:>10} | {a['airlines']}")
 
 if __name__ == "__main__":
     main()
