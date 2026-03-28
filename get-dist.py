@@ -47,6 +47,28 @@ CITY_OVERRIDES = {
     "MEL": "Melbourne", "AVV": "Melbourne",
     "SIN": "Singapore", "HKG": "Hong Kong",
     
+    # Scandinavia & Nordics
+    "CPH": "Copenhagen", "ARN": "Stockholm", "BMA": "Stockholm",
+    "OSL": "Oslo", "HEL": "Helsinki", "KEF": "Reykjavik",
+    "RKV": "Reykjavik", "FAE": "Vágar", "BGO": "Bergen",
+    
+    # Baltics
+    "RIX": "Riga", "TLL": "Tallinn", "VNO": "Vilnius",
+
+    # Greenland
+    "GOH": "Nuuk", "SFJ": "Kangerlussuaq", "JAV": "Ilulissat",
+    
+    # Africa
+    "JNB": "Johannesburg", "CPT": "Cape Town", "NBO": "Nairobi",
+    "ADD": "Addis Ababa", "CAI": "Cairo", "CMN": "Casablanca",
+    "LFW": "Lomé", "MRU": "Mauritius",
+
+    # Middle East
+    "DXB": "Dubai", "DWC": "Dubai", "DOH": "Doha", "AUH": "Abu Dhabi",
+    "JED": "Jeddah", "RUH": "Riyadh", "DMM": "Dammam", "MED": "Medina",
+    "BAH": "Bahrain", "MCT": "Muscat", "BEY": "Beirut", "AMM": "Amman",
+    "KWI": "Kuwait City", "SHJ": "Sharjah",
+    
     # Americas
     "JFK": "New York", "EWR": "New York", "LGA": "New York",
     "ORD": "Chicago", "MDW": "Chicago",
@@ -64,41 +86,55 @@ CITY_OVERRIDES = {
 
 # --- Alliance Registry ---
 ALLIANCES = {
-    "oneworld": {"AA", "BA", "IB", "QF", "CX", "JL", "QR", "AY", "AS", "AT", "MH", "UL", "HA"},
-    "star": {"UA", "LH", "SQ", "NZ", "AC", "NH", "OZ", "TK", "LX", "OS", "SN", "TP", "AI", "ET", "LO", "AZ", "LG", "AV", "CA", "ZH", "TG", "BR"},
-    "skyteam": {"DL", "AF", "KL", "KE", "AM", "SV", "VN", "GA", "ME", "SK", "MU", "MF", "CI"}
+    "oneworld": {"AA", "BA", "IB", "QF", "CX", "JL", "QR", "AY", "AS", "AT", "MH", "UL", "HA", "WY", "RJ"},
+    "star": {"UA", "LH", "SQ", "NZ", "AC", "NH", "OZ", "TK", "LX", "OS", "SN", "TP", "AI", "ET", "LO", "AZ", "LG", "AV", "CA", "ZH", "TG", "BR", "SA", "MS"},
+    "skyteam": {"DL", "AF", "KL", "KE", "AM", "SV", "VN", "GA", "ME", "SK", "MU", "MF", "CI", "KQ"}
 }
 
 # --- Airline Hub Registry ---
 AIRLINE_HUBS = {
+    # Scandinavia & Nordics
+    "SK": {"CPH", "ARN", "OSL"},                            # SAS (SkyTeam)
+    "AY": {"HEL"},                                          # Finnair (Oneworld)
+    "DY": {"OSL", "ARN", "CPH"},                            # Norwegian
+    "FI": {"KEF", "RKV"},                                   # Icelandair
+    "RC": {"FAE"},                                          # Atlantic Airways
+    "WF": {"BGO", "OSL", "TRF"},                            # Widerøe
+
+    # Baltics
+    "BT": {"RIX", "TLL", "VNO"},                            # airBaltic
+
+    # Greenland
+    "GL": {"GOH", "SFJ", "JAV"},                            # Air Greenland
+
     # Japan
-    "JL": {"HND", "NRT", "ITM", "KIX", "FUK", "CTS", "OKA"}, # Japan Airlines
-    "NH": {"HND", "NRT", "ITM", "KIX", "FUK", "CTS", "NGO"}, # All Nippon Airways
-    "ZG": {"NRT"},                                          # Zipair Tokyo
-    "MM": {"KIX", "NRT", "HND", "CTS", "FUK", "OKA"},       # Peach Aviation
-    "GK": {"NRT", "KIX", "NGO", "FUK"},                     # Jetstar Japan
-    "HD": {"CTS", "HND"},                                   # Air Do
+    "JL": {"HND", "NRT", "ITM", "KIX", "FUK", "CTS", "OKA"}, 
+    "NH": {"HND", "NRT", "ITM", "KIX", "FUK", "CTS", "NGO"}, 
+    "ZG": {"NRT"},                                          
+    "MM": {"KIX", "NRT", "HND", "CTS", "FUK", "OKA"},       
+    "GK": {"NRT", "KIX", "NGO", "FUK"},                     
+    "HD": {"CTS", "HND"},                                   
     
     # Korea
-    "KE": {"ICN", "GMP", "PUS", "CJU"},                     # Korean Air
-    "OZ": {"ICN", "GMP"},                                   # Asiana Airlines
-    "7C": {"ICN", "GMP", "PUS"},                            # Jeju Air
+    "KE": {"ICN", "GMP", "PUS", "CJU"},                     
+    "OZ": {"ICN", "GMP"},                                   
+    "7C": {"ICN", "GMP", "PUS"},                            
 
     # Taiwan
-    "BR": {"TPE", "KHH"},                                   # EVA Air
-    "CI": {"TPE", "KHH"},                                   # China Airlines
-    "JX": {"TPE"},                                          # STARLUX Airlines
+    "BR": {"TPE", "KHH"},                                   
+    "CI": {"TPE", "KHH"},                                   
+    "JX": {"TPE"},                                          
 
     # Southeast Asia
-    "TG": {"BKK"},                                          # Thai Airways
-    "FD": {"DMK", "BKK", "HKT", "CNX"},                     # Thai AirAsia
-    "5J": {"CEB", "MNL", "CRK", "DVO", "ILO"},              # Cebu Pacific
-    "PR": {"MNL", "CEB", "CRK", "DVO"},                     # Philippine Airlines
-    "VN": {"HAN", "SGN", "DAD"},                            # Vietnam Airlines
-    "GA": {"CGK", "DPS", "SUB"},                            # Garuda Indonesia
-    "MH": {"KUL"},                                          # Malaysia Airlines
-    "AK": {"KUL", "BKI", "KCH", "PEN"},                     # AirAsia
-    "SQ": {"SIN"},                                          # Singapore Airlines
+    "TG": {"BKK"},                                          
+    "FD": {"DMK", "BKK", "HKT", "CNX"},                     
+    "5J": {"CEB", "MNL", "CRK", "DVO", "ILO"},              
+    "PR": {"MNL", "CEB", "CRK", "DVO"},                     
+    "VN": {"HAN", "SGN", "DAD"},                            
+    "GA": {"CGK", "DPS", "SUB"},                            
+    "MH": {"KUL"},                                          
+    "AK": {"KUL", "BKI", "KCH", "PEN"},                     
+    "SQ": {"SIN"},                                          
 
     # Mainland China
     "CA": {"PEK", "PKX", "CTU", "TFU", "PVG", "SHA", "SZX"}, 
@@ -107,6 +143,27 @@ AIRLINE_HUBS = {
     "HU": {"HAK", "PEK", "SZX", "XIY"},                     
     "ZH": {"SZX", "CAN", "PEK"},                            
     "MF": {"XMN", "FOC", "PKX"},                            
+
+    # Middle East
+    "EK": {"DXB"},                                          
+    "QR": {"DOH"},                                          
+    "EY": {"AUH"},                                          
+    "SV": {"JED", "RUH", "MED", "DMM"},                     
+    "WY": {"MCT"},                                          
+    "ME": {"BEY"},                                          
+    "GF": {"BAH"},                                          
+    "RJ": {"AMM"},                                          
+    "KU": {"KWI"},                                          
+    "FZ": {"DXB"},                                          
+    "G9": {"SHJ", "AUH", "RKT"},                            
+
+    # Africa
+    "ET": {"ADD", "LFW", "LLW"},                            
+    "SA": {"JNB", "CPT", "DUR"},                            
+    "KQ": {"NBO"},                                          
+    "MS": {"CAI", "HBE"},                                   
+    "AT": {"CMN"},                                          
+    "MK": {"MRU"},                                          
 
     # South & Central America
     "LA": {"SCL", "GRU", "LIM", "BOG", "AEP"},               
