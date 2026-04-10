@@ -1,7 +1,5 @@
-import sys
 import argparse
 import pandas as pd
-import geopandas as gpd
 from sqlalchemy import create_engine, text
 
 # 2026 Python 3.14 Performance: We use the engine globally

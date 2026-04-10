@@ -1,7 +1,6 @@
 import csv
 import math
 import os
-import sys
 import argparse
 from urllib.request import urlretrieve
 
